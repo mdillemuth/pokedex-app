@@ -1,0 +1,55 @@
+:root {
+  --pokemon-yellow: #FFCB05;
+  --pokemon-blue: #2D71B7;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #FAFAFA;
+  font-family: Arial, Helvetica, sans-serif;
+}
+li, a {
+  list-style: none;
+  text-decoration: none;
+}
+.logo__img {
+  width: 100px;
+}
+.header {
+  padding: 0 100px;
+  background-color: var(--pokemon-blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 {
+  color: white;
+  text-align: center;
+}
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.nav__list--item {
+  padding: 1em;
+}
+.nav__list--link {
+  color: var(--pokemon-yellow);
+  font-weight: bold;
+}
+.nav__list--item:hover {
+  background-color: var(--pokemon-yellow);
+}
+.nav__list--item:hover a {
+  color: #FAFAFA;
+}
+.logo__link {
+  transition: 300ms ease;
+}
+.logo__link:hover .logo__img {
+  transform: scale(1.05);
+}
