@@ -24,14 +24,17 @@ html {
   font-size: 16px;
 }
 @font-face {
-  font-family: fira-sans, "sans-serif";
-  src: url(fonts/FiraSans-Regular.ttf);
+  font-family: fira-sans;
+  src: url("../fonts/FiraSans-Regular.ttf");
 }
 @font-face {
   font-family: roboto;
-  src: url(fonts/Roboto-Regular.ttf);
+  src: url("../fonts/Roboto-Regular.ttf");
 }
-h1, h3, li, a {
+h1,
+h3,
+li,
+a {
   font-family: var(--primary-font);
   font-weight: bold;
   color: var(--primary-color);
@@ -49,6 +52,8 @@ p {
   font-weight: lighter;
   color: var(--text-color);
 }
+
+
 
 /* *===== PAGE LAYOUT =====* */
 body {
@@ -172,8 +177,6 @@ body {
   margin: 2em auto;
 }
 
-
-
 /* *===== FOOTER =====* */
 .footer {
   display: flex;
@@ -204,10 +207,10 @@ body {
   }
   .nav__list--item {
     border-bottom: 3px solid transparent;
-    padding: .5em 1em;
+    padding: 0.5em 1em;
   }
   .nav__list--item:hover,
-  .nav__list--item:focus  {
+  .nav__list--item:focus {
     background-color: unset;
     border-bottom-color: var(--text-color);
   }
