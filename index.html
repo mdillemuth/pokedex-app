@@ -4,11 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="CSS/styles.css">
-  <title>Pokedex App</title>
+  <title>Pokédex App</title>
 </head>
-<body>
-  <div class="header">
+<body class="body">
+  <header class="header">
     <span class="logo"><a href="index.html" class="logo__link"><img class="logo__img" src="img/logo-pokemon.svg" alt="pokemon logo"></a></span>
+    <div class="hamburger">
+      <span class="first-bar"></span>
+      <span class="second-bar"></span>
+      <span class="third-bar"></span>
+    </div>
     <nav class="header__nav">
       <ul class="nav__list">
         <li class="nav__list--item"><a href="#" class="nav__list--link">Home</a></li>
@@ -16,7 +21,23 @@
         <li class="nav__list--item"><a href="#" class="nav__list--link">Contact</a></li>
       </ul>
     </nav>
-  </div>
+  </header>
+  <main class="main">
+    <section class="main__heading">
+      <h1>Pokédex App</h1>
+      <h2>Learn about your favorite Pokémon</h2>
+    </section>
+    <div class="card__container">
+      <div class="card">
+        <h3></h3>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>Made by <a href="https://www.mattdillemuth.com" target="_blank">Matt Dillemuth</a></p>
+  </footer>
+
+
   <script src="JS/app.js"></script>
 </body>
 </html>
