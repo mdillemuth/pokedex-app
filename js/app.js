@@ -98,18 +98,17 @@ let pokemonList = [
 
 function writeName() {
   //Iterates through content of pokemonList[] and writes to DOM
-  for (i in pokemonList) {
-    if (pokemonList[i].height >= 2) {
-      //Checks for Pokemon with height >= 2m 
+  pokemonList.forEach((item) => {
+    if (item.height >= 2) {
       document.write(
-        `Pokemon Name: ${pokemonList[i].name} (height: ${pokemonList[i].height}m) -Wow, that's big!<br></br>`
+        `Pokemon Name: ${item.name} (height: ${item.height}) -Wow, that's big!<br></br>`
       );
     } else {
       document.write(
-        `Pokemon Name: ${pokemonList[i].name} (height: ${pokemonList[i].height}m)<br></br>`
+        `Pokemon Name: ${item.name} (height: ${item.height})<br></br>`
       );
     }
-  }
+  });
 }
 
 writeName();
