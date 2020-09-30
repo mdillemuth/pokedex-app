@@ -105,19 +105,14 @@ let pokemonRepository = (function () {
     if (typeof pokemon !== "object") {
       return 0;
     }
-    // Creating arrays of keys from pokemonList & input to test
-    let pokeKeys = Object.keys(pokemonList[0]);
-    // Uses an arbitrary index as all objects in pokemonList have same keys
-    let addKeys = Object.keys(pokemon);
 
-    // Iterate through key arrays to test equality
-    for (let i in pokeKeys) {
-      if (pokeKeys[i] !== addKeys[i]) {
-        return 0;
-      }
+    // Checks for matching keys
+    if (
+      Object.keys(pokemonList[0]).every((pokemonKey) => pokemonKey in pokemon)
+    ) {
+      // Push new pokemon that has passed tests
+      pokemonList.push(pokemon);
     }
-    // Push new pokemon that has passed tests
-    pokemonList.push(pokemon);
   }
 
   // Retrieve data
@@ -132,12 +127,10 @@ let pokemonRepository = (function () {
       return 0;
     }
 
-    // Searching for match, adding case-insensitivity
-    for (let i in pokemonList) {
-      if (pokemonList[i].name.toLowerCase() === searchName.toLowerCase()) {
-        return pokemonList[i];
-      }
-    }
+    //return all the pokemon that contain a search string in the name
+    return pokemonList.filter((e) =>
+      e.name.toLowerCase().includes(searchName.toLowerCase())
+    );
   }
 
   // Providing access to functions
@@ -148,21 +141,17 @@ let pokemonRepository = (function () {
   };
 })();
 
-
 function writeName() {
   // Improve readability and maintainability with a helper function
   const writeTemplate = function (pokeName, pokeHeight) {
     const bigStr = " Wow, that's big!"; // Defining extra string if isBig = true
-    let bigDef = 2; // Defining special case for 'big'
-    let isBig; // Boolean for whether pokemon meets special case 'big'
-    pokeHeight >= bigDef ? (isBig = true) : (isBig = false); // Assigning boolean value to isBig
+    const bigDef = 2; // Defining special case for 'big'
+    const isBig = pokeHeight >= bigDef ? true : false; //Assign boolean for big
 
     // Assigning string to use for document.write()
-    if (isBig) {
-      return `Pokemon Name: ${pokeName} (height: ${pokeHeight})${bigStr}<br></br>`;
-    } else {
-      return `Pokemon Name: ${pokeName} (height: ${pokeHeight})<br></br>`;
-    }
+    return isBig
+      ? `Pokemon Name: ${pokeName} (height: ${pokeHeight})${bigStr}<br></br>`
+      : `Pokemon Name: ${pokeName} (height: ${pokeHeight})<br></br>`;
   };
 
   pokemonRepository.getAll().forEach((item) => {
@@ -178,21 +167,21 @@ writeName();
 // console.log(pokemonRepository.search('cHaRiZard'));
 
 //  Tests for add()
-// pokemonRepository.add(    {
-//       name: "testPASS",
-//       height: 0.99,
-//       type: ["test"],
-//       hp: 99,
-//       atk: 99,
-//       def: 99,
-//     })
-// pokemonRepository.add( {
+// pokemonRepository.add({
+//   name: "testPASS",
+//   height: 0.99,
+//   type: ["test"],
+//   hp: 99,
+//   atk: 99,
+//   def: 99,
+// });
+// pokemonRepository.add({
 //   name: "testFAIL",
-//   height: 0.10,
-//   hp: 200,          
+//   height: 0.1,
+//   hp: 200,
 //   atk: 84,
 //   def: 200,
-// })
+// });
 // writeName();
 
 // Tests for get()
