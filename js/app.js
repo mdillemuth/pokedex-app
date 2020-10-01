@@ -1,29 +1,28 @@
-/* *===== HAMBURGER NAV MENU MOBILE *===== */
-const navTriggerEl = document.querySelector(".hamburger");
-const navEl = document.querySelector(".header__nav");
-const hamburgerBarsEl = document.getElementsByTagName("span");
+// Mobile navigation object
+let mobileNavigation = (function () {
+  const navTriggerEl = document.querySelector(".hamburger");
+  const navEl = document.querySelector(".header__nav");
+  const hamburgerBarsEl = document.querySelectorAll(".bar");
 
-function toggleNav() {
-  //Toggles appearance of the side nav on mobile when hamburger clicked
-  navTriggerEl.addEventListener("click", function () {
-    navEl.classList.toggle("shift");
-    animateHamburgers();
-  });
-}
+  // Toggles mobile navigation when hamburger icon clicked
+  (function toggleNav() {
+    navTriggerEl.addEventListener("click", function () {
+      navEl.classList.toggle("shift");
+      animateHamburgers();
+    });
+  })();
 
-function animateHamburgers() {
-  //Toggles hamburger icon to 'X' when side nav appears
-  for (let item of hamburgerBarsEl) {
-    item.classList.toggle("change");
+  // Called to change hamburger icon to 'X' icon on navigation toggle
+  function animateHamburgers() {
+    for (let item of hamburgerBarsEl) {
+      item.classList.toggle("change");
+    }
   }
-}
+})();
 
-toggleNav();
-
-/* *===== POKEDEX SCRIPTS =====* */
-
+// Pokedex object
 let pokemonRepository = (function () {
-  // Array of unique pokemon objects
+  // Pokedex database of pokemon objects
   let pokemonList = [
     {
       name: "Bulbasaur",
@@ -99,38 +98,58 @@ let pokemonRepository = (function () {
     },
   ];
 
-  // Add new pokemon to pokemonList
+  // Add pokemon to database
   function add(pokemon) {
-    // Checking for input being object type
+    // Input type validation
     if (typeof pokemon !== "object") {
       return 0;
     }
 
-    // Checks for matching keys
+    // Key validation
     if (
       Object.keys(pokemonList[0]).every((pokemonKey) => pokemonKey in pokemon)
     ) {
-      // Push new pokemon that has passed tests
+      // Add to database
       pokemonList.push(pokemon);
     }
   }
 
-  // Retrieve data
+  // Retrieve database
   function getAll() {
     return pokemonList;
   }
 
-  // Retrieve by name
+  // Search database by name
   function search(searchName) {
-    // Validating data type of search input
+    // Input type validation
     if (typeof searchName !== "string") {
       return 0;
     }
 
-    //return all the pokemon that contain a search string in the name
+    // Returns matching pokemon
     return pokemonList.filter((e) =>
       e.name.toLowerCase().includes(searchName.toLowerCase())
     );
+  }
+
+  // Writes content to display in DOM
+  function addListItem(pokemon) {
+    // Select, create, and append to DOM
+    let pokemonList = document.querySelector(".pokemon-list");
+    let pokemonListItem = document.createElement("li");
+    let button = document.createElement("button");
+    pokemonListItem.appendChild(button);
+    pokemonList.appendChild(pokemonListItem);
+
+    // Write pokemon name to button
+    button.innerText = pokemon.name;
+
+    // Add class to select in CSS
+    button.classList.add("btn");
+
+    // Log clicked pokemon name to console
+    const showDetails = () => console.log(pokemon.name);
+    button.addEventListener("click", showDetails);
   }
 
   // Providing access to functions
@@ -138,51 +157,11 @@ let pokemonRepository = (function () {
     add: add,
     getAll: getAll,
     search: search,
+    addListItem: addListItem,
   };
 })();
 
-function writeName() {
-  // Improve readability and maintainability with a helper function
-  const writeTemplate = function (pokeName, pokeHeight) {
-    const bigStr = " Wow, that's big!"; // Defining extra string if isBig = true
-    const bigDef = 2; // Defining special case for 'big'
-    const isBig = pokeHeight >= bigDef ? true : false; //Assign boolean for big
-
-    // Assigning string to use for document.write()
-    return isBig
-      ? `Pokemon Name: ${pokeName} (height: ${pokeHeight})${bigStr}<br></br>`
-      : `Pokemon Name: ${pokeName} (height: ${pokeHeight})<br></br>`;
-  };
-
-  pokemonRepository.getAll().forEach((item) => {
-    // Calls helper function to provide string output
-    document.write(writeTemplate(item.name, item.height));
-  });
-}
-
-writeName();
-
-// Tests for search()
-// console.log(pokemonRepository.search('bulbasaur'));
-// console.log(pokemonRepository.search('cHaRiZard'));
-
-//  Tests for add()
-// pokemonRepository.add({
-//   name: "testPASS",
-//   height: 0.99,
-//   type: ["test"],
-//   hp: 99,
-//   atk: 99,
-//   def: 99,
-// });
-// pokemonRepository.add({
-//   name: "testFAIL",
-//   height: 0.1,
-//   hp: 200,
-//   atk: 84,
-//   def: 200,
-// });
-// writeName();
-
-// Tests for get()
-// console.log(pokemonRepository.getAll());
+// Accesses Pokedex object to write to the DOM
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
