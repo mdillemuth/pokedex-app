@@ -132,6 +132,9 @@ let pokemonRepository = (function () {
     );
   }
 
+  // Log clicked pokemon name to console
+  const showDetails = name => console.log(name);
+
   // Writes content to display in DOM
   function addListItem(pokemon) {
     // Select, create, and append to DOM
@@ -148,8 +151,7 @@ let pokemonRepository = (function () {
     button.classList.add("btn");
 
     // Log clicked pokemon name to console
-    const showDetails = () => console.log(pokemon.name);
-    button.addEventListener("click", showDetails);
+    button.addEventListener("click", () => {showDetails(pokemon.name)});
   }
 
   // Providing access to functions
@@ -162,6 +164,4 @@ let pokemonRepository = (function () {
 })();
 
 // Accesses Pokedex object to write to the DOM
-pokemonRepository.getAll().forEach(function (pokemon) {
-  pokemonRepository.addListItem(pokemon);
-});
+pokemonRepository.getAll().forEach( pokemon => pokemonRepository.addListItem(pokemon));

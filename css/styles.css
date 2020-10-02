@@ -201,9 +201,7 @@ body {
   width: 100%;
 }
 .btn:hover,
-.btn:focus,
-.logo:hover,
-.logo:focus {
+.logo:hover {
   transform: scale(1.05);
 }
 

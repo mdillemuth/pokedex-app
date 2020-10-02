@@ -254,9 +254,7 @@ body {
   width: 100%;
 }
 .btn:hover,
-.btn:focus,
-.logo:hover,
-.logo:focus {
+.logo:hover {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);
