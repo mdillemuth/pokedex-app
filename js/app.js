@@ -1,12 +1,12 @@
 // Mobile navigation object
-let mobileNavigation = (function () {
+let mobileNavigation = (() => {
   const navTriggerEl = document.querySelector(".hamburger");
   const navEl = document.querySelector(".header__nav");
   const hamburgerBarsEl = document.querySelectorAll(".bar");
 
   // Toggles mobile navigation when hamburger icon clicked
   (function toggleNav() {
-    navTriggerEl.addEventListener("click", function () {
+    navTriggerEl.addEventListener("click", () => {
       navEl.classList.toggle("shift");
       animateHamburgers();
     });
@@ -21,7 +21,7 @@ let mobileNavigation = (function () {
 })();
 
 // Pokedex object
-let pokemonRepository = (function () {
+let pokemonRepository = (() => {
   // Pokedex database of pokemon objects
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=151";
@@ -54,9 +54,6 @@ let pokemonRepository = (function () {
     );
   }
 
-  // Log clicked pokemon name to console
-  // const showDetails = (name) => console.log(name);
-
   // Writes content to display in DOM
   function addListItem(pokemon) {
     // Select, create, and append to DOM
@@ -81,11 +78,11 @@ let pokemonRepository = (function () {
   // API fetch
   function loadList() {
     return fetch(apiUrl)
-      .then(function (response) {
+      .then((response) => {
         return response.json();
       })
-      .then(function (json) {
-        json.results.forEach(function (item) {
+      .then((json) => {
+        json.results.forEach((item) => {
           let pokemon = {
             name: item.name,
             detailsUrl: item.url,
@@ -93,7 +90,7 @@ let pokemonRepository = (function () {
           add(pokemon);
         });
       })
-      .catch(function (e) {
+      .catch((e) => {
         console.error(e);
       });
   }
@@ -102,26 +99,27 @@ let pokemonRepository = (function () {
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
-      .then(function (response) {
+      .then((response) => {
         return response.json();
       })
-      .then(function (details) {
+      .then((details) => {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         item.types = details.types;
         item.stats = details.stats;
       })
-      .catch(function (e) {
+      .catch((e) => {
         console.error(e);
       });
   }
 
+  // Log details to console
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
+    loadDetails(pokemon).then(() => {
       console.log(pokemon);
     });
   }
-  // Providing access to functions
+  // Provide access to functions
   return {
     add: add,
     getAll: getAll,
@@ -139,8 +137,8 @@ pokemonRepository
   .forEach((pokemon) => pokemonRepository.addListItem(pokemon));
 
 // Loading data
-pokemonRepository.loadList().then(function () {
-  pokemonRepository.getAll().forEach(function (pokemon) {
+pokemonRepository.loadList().then(() => {
+  pokemonRepository.getAll().forEach((pokemon) => {
     pokemonRepository.addListItem(pokemon);
   });
 });
