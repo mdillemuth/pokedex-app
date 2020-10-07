@@ -39,7 +39,7 @@ h3,
 li,
 a {
   font-family: var(--primary-font);
-  color: var(--pokemon-yellow);
+  color: var(--pokemon-blue);
   letter-spacing: 1px;
   font-weight: 400;
 }
@@ -55,7 +55,7 @@ h1 {
 h2 {
   font-size: 1.5em;
   font-weight: 400;
-  color: var(--text-color);
+  color: var(--pokemon-red);
   letter-spacing: 0.25px;
 }
 p {
@@ -74,7 +74,10 @@ p {
 body {
   position: relative;
   min-height: 100vh;
-  background-color: var(--pokemon-blue);
+  background: no-repeat url("../img/background2.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
   grid-template-columns: 50px 1fr 50px;
@@ -89,6 +92,9 @@ body {
 }
 .main {
   grid-area: main;
+  background-color: var(--text-color);
+  padding: 0 2em;
+  border-radius: 5px;
   justify-self: center;
 }
 .footer {
@@ -100,7 +106,6 @@ body {
   width: 6em;
 }
 .header {
-  background-color: var(--pokemon-blue);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,8 +117,8 @@ body {
   right: 0;
   height: 100vh;
   width: 250px;
-  background-color: var(--text-color);
   display: none;
+  background-color: var(--text-color);
 }
 .nav__list {
   display: flex;
@@ -130,16 +135,31 @@ body {
 .nav__list--link {
   color: var(--pokemon-blue);
 }
-.nav__list--item:hover,
-.nav__list--item:focus {
-  background-color: var(--pokemon-yellow);
-}
-.nav__list--item:hover a {
-  color: var(--text-color);
+.nav__list--link:hover,
+.nav__list--link:focus {
+  font-weight: bold;
 }
 .shift {
   display: unset;
   position: fixed;
+}
+
+/* *===== SEARCH BAR =====* */
+.search__input {
+  border: 2px solid var(--pokemon-blue);
+  border-radius: 5px;
+  padding: 0.75em 1.5em;
+  outline: none;
+  width: 300px;
+  font-family: var(--secondary-font);
+}
+.search__input::placeholder {
+  font-family: var(--secondary-font);
+  color: #3b4ccaaa;
+}
+.search__input:focus {
+  border-color: var(--pokemon-yellow);
+  box-shadow: 0 0 1px 1px var(--pokemon-yellow);
 }
 
 /* *===== HAMBURGER *===== */
@@ -160,9 +180,13 @@ body {
 .hamburger:hover {
   cursor: pointer;
 }
+.hamburger:hover span {
+  background-color: var(--pokemon-yellow);
+}
+
 .hamburger span {
   display: block;
-  background: var(--pokemon-yellow);
+  background: var(--text-color);
   margin: 6px 0;
   height: 6px;
   width: 36px;
@@ -201,13 +225,14 @@ body {
   display: inline-block;
   transition-duration: 0.25s;
   cursor: pointer;
-  background-color: var(--pokemon-yellow);
+  background-color: var(--pokemon-blue);
+  color: var(--pokemon-yellow);
   border: none;
   border-radius: 5px;
   width: 100%;
 }
 .btn:hover,
-.logo:hover {
+.btn:focus {
   transform: scale(1.05);
 }
 
@@ -310,18 +335,20 @@ body {
 
 /* *===== CONTACT =====* */
 .main__contact {
-  justify-self: unset;
+  width: 100%;
+  max-width: 700px;
+  height: fit-content;
 }
 .contact__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1em 2em;
+  padding: 1em;
   border: none;
   border-radius: 5px;
   background-color: var(--text-color);
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   margin: 1em auto;
 }
 .contact__heading {
@@ -333,8 +360,8 @@ body {
 .contact__subheading {
   color: var(--pokemon-red);
   text-align: center;
-  font-size: 1.25em;
-  margin-bottom: 0.75em;
+  font-size: 1em;
+  margin-bottom: 1em;
 }
 .contact__label {
   color: var(--text-color-dark);
@@ -364,7 +391,7 @@ textarea.contact__input {
   min-height: 125px;
 }
 .btn__form {
-  color: var(--text-color-dark);
+  color: var(--pokemon-yellow);
 }
 
 /* *===== CONTACT VALIDATION =====* */
@@ -394,8 +421,8 @@ textarea.contact__input {
     display: block;
     position: unset;
     height: unset;
-    background-color: var(--pokemon-blue);
     width: unset;
+    background-color: transparent;
     padding: unset;
   }
   .nav__list {
@@ -411,6 +438,7 @@ textarea.contact__input {
   }
   .nav__list--link {
     color: var(--text-color);
+    font-weight: bold;
   }
   a.nav__list--link:hover {
     color: var(--pokemon-yellow);
