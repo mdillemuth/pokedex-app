@@ -20,8 +20,13 @@
       sizes="16x16"
       href="favicon/favicon-16x16.png"
     />
+    <script
+      src="https://kit.fontawesome.com/9a4fba4c80.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="manifest" href="favicon/site.webmanifest" />
-    <link rel="stylesheet" href="css/production.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- <link rel="stylesheet" href="css/production.css" /> -->
     <title>Pokédex App</title>
   </head>
   <body class="body">
@@ -60,6 +65,18 @@
       <section class="main__content">
         <ul class="pokemon-list"></ul>
       </section>
+      <div id="modal__container" class="modal__container">
+        <div id="modal" class="modal">
+          <button id="modal__btn" class="modal__btn">
+            <i class="fas fa-times modal__btn--icon"></i>
+          </button>
+          <h2 id="modal__title" class="modal__title"></h2>
+          <div class="modal__content">
+            <img id="modal__img" class="modal__img" alt="pokemon image" />
+            <div id="modal__text" class="modal__text"></div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="footer">
       <p>

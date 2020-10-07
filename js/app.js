@@ -26,6 +26,12 @@ let pokemonRepository = (() => {
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=151";
 
+  // Capitalize first letter of pokemon name
+  function capitalize(str) {
+    newStr = str.replace(/^\w/, (c) => c.toUpperCase());
+    return newStr;
+  }
+
   // Add pokemon to database
   function add(pokemon) {
     // Input type validation
@@ -63,8 +69,8 @@ let pokemonRepository = (() => {
     pokemonListItem.appendChild(button);
     pokemonList.appendChild(pokemonListItem);
 
-    // Write pokemon name to button
-    button.innerText = pokemon.name;
+    // Add pokemon name to button
+    button.innerText = capitalize(pokemon.name);
 
     // Add class to select in CSS
     button.classList.add("btn");
@@ -105,16 +111,64 @@ let pokemonRepository = (() => {
       .then((details) => {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
+        item.weight = details.weight;
         item.types = details.types;
         item.stats = details.stats;
       })
       .catch((e) => {
         console.error(e);
       });
+
+    return item;
   }
 
-  // Log details to console
+  // Modal
   function showDetails(pokemon) {
+    let modalContainer = document.querySelector("#modal__container");
+    let modal = document.querySelector("#modal");
+    let modalBtn = document.querySelector("#modal__btn");
+    let modalTitle = document.querySelector("#modal__title");
+    let modalImg = document.querySelector("#modal__img");
+    let modalText = document.querySelector("#modal__text");
+
+    // Closing the modals
+    modalBtn.addEventListener("click", modalClose);
+    modalContainer.addEventListener("click", (e) => {
+      if (e.target === modalContainer) {
+        modalClose();
+      }
+    });
+    window.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        modalContainer.classList.contains("modal__container--active")
+      ) {
+        modalClose();
+      }
+    });
+
+    // Opening the modal (with event propagation)
+    let parentList = document.querySelector(".pokemon-list");
+    parentList.addEventListener("click", (e) => {
+      if (e.target.classList.contains("btn")) {
+        modalShow();
+      }
+    });
+
+    function modalShow() {
+      modalTitle.innerText = capitalize(pokemon.name);
+      modalImg.setAttribute("src", `${pokemon.imageUrl}`);
+      modalText.innerHTML = `Height:  ${pokemon.height / 10}m</br>Weight:  ${
+        pokemon.weight / 10
+      }kg`;
+      modalContainer.classList.add("modal__container--active");
+    }
+
+    function modalClose() {
+      modalContainer.classList.remove("modal__container--active");
+    }
+
+    // Original showDetails content
     loadDetails(pokemon).then(() => {
       console.log(pokemon);
     });
