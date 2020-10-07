@@ -20,6 +20,15 @@ let mobileNavigation = (() => {
   }
 })();
 
+// Contact validation ***** TODO *****
+let contactValidation = (() => {
+  let contactName = document.querySelector("#name");
+  let contactEmail = document.querySelector("#email");
+  let contactMessage = document.querySelector("#message");
+  let contactBtn = document.querySelector("#contact__btn");
+  let contactForm = document.querySelector("#contact__form");
+})();
+
 // Pokedex object
 let pokemonRepository = (() => {
   // Pokedex database of pokemon objects

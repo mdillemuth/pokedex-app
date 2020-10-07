@@ -155,7 +155,7 @@ body {
 }
 .hamburger {
   /* Needs to stay below modal */
-  z-index: 10;
+  z-index: 900;
 }
 .hamburger:hover {
   cursor: pointer;
@@ -308,6 +308,80 @@ body {
   justify-content: center;
 }
 
+/* *===== CONTACT =====* */
+.main__contact {
+  justify-self: unset;
+}
+.contact__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--text-color);
+  width: 100%;
+  max-width: 600px;
+  margin: 1em auto;
+}
+.contact__heading {
+  color: var(--pokemon-blue);
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 0.25em;
+}
+.contact__subheading {
+  color: var(--pokemon-red);
+  text-align: center;
+  font-size: 1.25em;
+  margin-bottom: 0.75em;
+}
+.contact__label {
+  color: var(--text-color-dark);
+  font-family: var(--primary-font);
+  font-size: 1em;
+}
+.contact__input {
+  font-family: var(--secondary-font);
+  font-size: 0.9em;
+  display: block;
+  width: 100%;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.075);
+  outline: none;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+.contact__input:focus {
+  border-color: var(--pokemon-yellow);
+}
+.contact__input::placeholder {
+  font-family: var(--secondary-font);
+}
+textarea.contact__input {
+  resize: vertical;
+  min-height: 125px;
+}
+.btn__form {
+  color: var(--text-color-dark);
+}
+
+/* *===== CONTACT VALIDATION =====* */
+.error {
+  display: none;
+}
+.error--active {
+  display: unset;
+  color: var(--red);
+  font-style: italic;
+  font-size: 11px;
+  font-weight: 500;
+}
+.error__input {
+  border-color: (var(--pokemon-red));
+}
+
 /* *===== MEDIA QUERIES =====* */
 @media all and (min-width: 700px) {
   html {
@@ -337,6 +411,9 @@ body {
   }
   .nav__list--link {
     color: var(--text-color);
+  }
+  a.nav__list--link:hover {
+    color: var(--pokemon-yellow);
   }
   .hamburger {
     display: none;
