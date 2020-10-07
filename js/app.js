@@ -148,19 +148,29 @@ let pokemonRepository = (() => {
     });
 
     // Opening the modal (with event propagation)
+    // Timeout for API data to load
     let parentList = document.querySelector(".pokemon-list");
     parentList.addEventListener("click", (e) => {
       if (e.target.classList.contains("btn")) {
-        modalShow();
+        setTimeout(modalShow, 250);
       }
     });
+
+    // Looping through pokemon.stats to pull stats
+    function modalStats() {
+      let stats = [];
+      for (let i in pokemon.stats) {
+        stats.push(
+          `${pokemon.stats[i].stat.name}:  ${pokemon.stats[i].base_stat}`
+        );
+      }
+      return stats.join("</br>");
+    }
 
     function modalShow() {
       modalTitle.innerText = capitalize(pokemon.name);
       modalImg.setAttribute("src", `${pokemon.imageUrl}`);
-      modalText.innerHTML = `Height:  ${pokemon.height / 10}m</br>Weight:  ${
-        pokemon.weight / 10
-      }kg`;
+      modalText.innerHTML = modalStats();
       modalContainer.classList.add("modal__container--active");
     }
 
