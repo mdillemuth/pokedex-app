@@ -84,18 +84,26 @@ let pokemonRepository = (() => {
     return pokemonList;
   }
 
-  // Search database by name
-  function search(searchName) {
-    // Input type validation
-    if (typeof searchName !== "string") {
-      return 0;
-    }
+  // Search database by name, needs to be IIFE
+  (function search() {
+    let searchBtn = document.querySelector("#search__btn");
 
-    // Returns matching pokemon
-    return pokemonList.filter((e) =>
-      e.name.toLowerCase().includes(searchName.toLowerCase())
-    );
-  }
+    searchBtn.addEventListener("click", searchFunction);
+
+    function searchFunction() {
+      // User search input
+      let searchInput = document.querySelector("#search").value.toLowerCase();
+
+      // Making array from the HTML collection of li's
+      let appList = document.querySelector(".pokemon-list").children;
+      let arr = Array.from(appList);
+
+      for (let i in arr) {
+        if (arr[i].firstChild.innerText.toLowerCase() !== searchInput)
+          arr[i].firstChild.style.display = "none";
+      }
+    }
+  })();
 
   // Writes content to display in DOM
   function addListItem(pokemon) {
@@ -216,6 +224,8 @@ let pokemonRepository = (() => {
     }
 
     // Original showDetails content
+    // Not sure if I still need this
+    // App breaks if I delet it
     loadDetails(pokemon).then(() => {
       console.log(pokemon);
     });
@@ -233,6 +243,7 @@ let pokemonRepository = (() => {
 })();
 
 // Accesses Pokedex object to write to the DOM
+// Not sure if I still need it
 pokemonRepository
   .getAll()
   .forEach((pokemon) => pokemonRepository.addListItem(pokemon));
