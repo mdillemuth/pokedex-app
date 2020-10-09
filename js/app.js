@@ -87,18 +87,28 @@ let pokemonRepository = (() => {
   // Search database by name, needs to be IIFE
   (function search() {
     let searchBtn = document.querySelector("#search__btn");
+    let searchBar = document.querySelector("#search");
 
+    // Triggers search when user hits 'enter' key
+    searchBar.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        searchFunction();
+      }
+    });
+
+    // Triggers search when user clicks 'Go!' button
     searchBtn.addEventListener("click", searchFunction);
 
+    // Search function
     function searchFunction() {
       // User search input
       let searchInput = document.querySelector("#search").value.toLowerCase();
 
-      // Making array from the HTML collection of li's
+      // Making array from the HTML collection to iterate through
       let appList = document.querySelector(".pokemon-list").children;
       let arr = Array.from(appList);
 
-      // Reset list for new search
+      // Resetting list from previous search for new search
       for (let i in arr) {
         arr[i].firstChild.style.display = "block";
       }
