@@ -193,11 +193,11 @@ let pokemonRepository = (() => {
     });
 
     // Opening the modal (with event propagation)
-    // Timeout for API data to load
     let parentList = document.querySelector(".pokemon-list");
     parentList.addEventListener("click", (e) => {
       if (e.target.classList.contains("btn")) {
-        setTimeout(modalShow, 250);
+        // Timeout for API data to load
+        setTimeout(modalShow, 1000);
       }
     });
 
@@ -224,8 +224,7 @@ let pokemonRepository = (() => {
     }
 
     // Original showDetails content
-    // Not sure if I still need this
-    // App breaks if I delet it
+    // Not sure if I still need this but app breaks if I delete it
     loadDetails(pokemon).then(() => {
       console.log(pokemon);
     });
