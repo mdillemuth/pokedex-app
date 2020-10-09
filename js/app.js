@@ -98,8 +98,21 @@ let pokemonRepository = (() => {
       let appList = document.querySelector(".pokemon-list").children;
       let arr = Array.from(appList);
 
+      // Reset list for new search
       for (let i in arr) {
-        if (arr[i].firstChild.innerText.toLowerCase() !== searchInput)
+        arr[i].firstChild.style.display = "block";
+      }
+
+      for (let i in arr) {
+        // returns full list if user enters a blank search
+        if (searchInput.length === 0) {
+          arr[i].firstChild.style.display = "block";
+        }
+        // hides elements that don't contain the search input
+        // button element inner text contains pokemon name
+        else if (
+          !arr[i].firstChild.innerText.toLowerCase().includes(searchInput)
+        )
           arr[i].firstChild.style.display = "none";
       }
     }
