@@ -20,15 +20,6 @@ let mobileNavigation = (() => {
   }
 })();
 
-// Contact validation ***** TODO *****
-let contactValidation = (() => {
-  const contactName = document.querySelector("#name");
-  const contactEmail = document.querySelector("#email");
-  const contactMessage = document.querySelector("#message");
-  const contactBtn = document.querySelector("#contact__btn");
-  const contactForm = document.querySelector("#contact__form");
-})();
-
 // Scroll-to-top button
 let scrollToTop = (() => {
   const scrollBtn = document.querySelector("#btn__top");

@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/9a4fba4c80.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/styles.css" />
     <title>Pokédex App | Contact</title>
   </head>
@@ -41,34 +45,34 @@
         <div class="contact__form">
           <form name="contact" method="POST" id="contact__form">
             <label for="name" class="contact__label label__name">Name</label>
-            <input
-              name="name"
-              class="contact__input input__name"
-              type="text"
-              id="name"
-              required
-              placeholder="Ash Ketchum"
-            />
-            <div class="error">Please enter a name</div>
+            <div class="input__wrapper">
+              <input
+                name="name"
+                class="contact__input input__name"
+                type="text"
+                id="name"
+                placeholder="Ash Ketchum"
+              />
+            </div>
             <label class="contact__label" for="email">Email</label>
-            <input
-              class="contact__input"
-              type="email"
-              id="email"
-              required
-              name="email"
-              placeholder="ash.ketchum@pokemon.com"
-            />
-            <div class="error">Please enter a valid email address</div>
+            <div class="input__wrapper">
+              <input
+                class="contact__input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="ash.ketchum@pokemon.com"
+              />
+            </div>
             <label class="contact__label" for="message">Message</label>
-            <textarea
-              name="message"
-              class="contact__input contact__textarea"
-              required
-              id="message"
-              placeholder="How do I beat Team Rocket?"
-            ></textarea>
-            <div class="error">Please enter your message</div>
+            <div class="input__wrapper">
+              <textarea
+                name="message"
+                class="contact__input contact__textarea"
+                id="message"
+                placeholder="How do I beat Team Rocket?"
+              ></textarea>
+            </div>
             <button
               id="contact__btn"
               class="btn btn__primary btn__form"
@@ -98,6 +102,6 @@
     </footer>
     <script src="js/polyfill-promise-min.js"></script>
     <script src="js/polyfill-fetch.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/form.js"></script>
   </body>
 </html>

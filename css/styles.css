@@ -447,18 +447,16 @@ textarea.contact__input {
 }
 
 /* *===== CONTACT VALIDATION =====* */
-.error {
-  display: none;
-}
-.error--active {
-  display: unset;
-  color: var(--red);
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  font-family: var(--secondary-font);
   font-style: italic;
-  font-size: 11px;
-  font-weight: 500;
+  margin-bottom: 1em;
+  text-align: left;
 }
 .error__input {
-  border-color: (var(--pokemon-red));
+  border-color: red;
 }
 
 /* *===== MEDIA QUERIES =====* */
