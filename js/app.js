@@ -77,20 +77,11 @@ let pokemonRepository = (() => {
 
   // Search database by name, needs to be IIFE
   (function search() {
-    let searchBtn = document.querySelector("#search__btn");
     let searchBar = document.querySelector("#search");
 
-    // Triggers search when user hits 'enter' key
-    searchBar.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        searchFunction();
-      }
-    });
+    // Trigger live filter when user types into search bar
+    searchBar.addEventListener("input", searchFunction);
 
-    // Triggers search when user clicks 'Go!' button
-    searchBtn.addEventListener("click", searchFunction);
-
-    // Search function
     function searchFunction() {
       // User search input
       let searchInput = document.querySelector("#search").value.toLowerCase();
@@ -99,19 +90,14 @@ let pokemonRepository = (() => {
       let appList = document.querySelector(".pokemon-list").children;
       let arr = Array.from(appList);
 
-      // Resetting list from previous search for new search
-      for (let i in arr) {
-        arr[i].firstChild.style.display = "block";
-      }
-
       for (let i in arr) {
         // returns full list if user enters a blank search
         if (searchInput.length === 0) {
           arr[i].firstChild.style.display = "block";
         }
         // hides elements that don't contain the search input
-        // button element inner text contains pokemon name
         else if (
+          // firstChild refers to the button element
           !arr[i].firstChild.innerText.toLowerCase().includes(searchInput)
         )
           arr[i].firstChild.style.display = "none";
