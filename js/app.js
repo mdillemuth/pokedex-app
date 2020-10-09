@@ -22,11 +22,39 @@ let mobileNavigation = (() => {
 
 // Contact validation ***** TODO *****
 let contactValidation = (() => {
-  let contactName = document.querySelector("#name");
-  let contactEmail = document.querySelector("#email");
-  let contactMessage = document.querySelector("#message");
-  let contactBtn = document.querySelector("#contact__btn");
-  let contactForm = document.querySelector("#contact__form");
+  const contactName = document.querySelector("#name");
+  const contactEmail = document.querySelector("#email");
+  const contactMessage = document.querySelector("#message");
+  const contactBtn = document.querySelector("#contact__btn");
+  const contactForm = document.querySelector("#contact__form");
+})();
+
+// Scroll-to-top button
+let scrollToTop = (() => {
+  const scrollBtn = document.querySelector("#btn__top");
+
+  // Shows button when user scrolls down 30px from top of document
+  window.onscroll = () => scrollFunction();
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 30 ||
+      document.documentElement.scrollTop > 30
+    ) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    // For Safari users
+    document.body.scrollTop = 0;
+    // For Chrome, Firefox, IE, Opera
+    document.documentElement.scrollTop = 0;
+  }
+
+  scrollBtn.addEventListener("click", topFunction);
 })();
 
 // Pokedex object

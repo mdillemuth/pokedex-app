@@ -92,8 +92,10 @@ body {
 }
 .main {
   grid-area: main;
+  overflow: hidden;
   background-color: var(--text-color);
   padding: 0 2em;
+  padding-bottom: 2em;
   border-radius: 5px;
   justify-self: center;
 }
@@ -106,6 +108,8 @@ body {
   width: 6em;
 }
 .header {
+  /* Z index to hide scroll-to-top btn on mobile */
+  z-index: 99;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -149,6 +153,7 @@ body {
   border: 2px solid var(--pokemon-blue);
   border-radius: 5px;
   padding: 0.75em 1.5em;
+  margin-top: 2em;
   outline: none;
   width: 300px;
   font-family: var(--secondary-font);
@@ -183,7 +188,6 @@ body {
 .hamburger:hover span {
   background-color: var(--pokemon-yellow);
 }
-
 .hamburger span {
   display: block;
   background: var(--text-color);
@@ -207,6 +211,28 @@ body {
   background: var(--pokemon-blue);
   bottom: 13px;
   transform: rotate(-45deg);
+}
+
+/* *===== BACK TO TOP BUTTON =====* */
+.btn__top {
+  display: none;
+  position: fixed;
+  bottom: 0.5em;
+  right: 1em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 2em;
+  background-color: var(--pokemon-red);
+  color: var(--text-color);
+  padding: 0.2em 0.3em;
+  border-radius: 5px;
+  transition: all 200ms ease-in-out;
+}
+.btn__top:hover,
+.btn__top:focus {
+  background-color: #cc0000;
+  transform: scale(1.05);
 }
 
 /* *===== MAIN CONTENT *===== */

@@ -31,14 +31,13 @@
   </head>
   <body class="body">
     <header class="header">
-      <span class="search__container">
-        <input
-          id="search"
-          type="search"
-          class="search__input"
-          placeholder="Search for your favorite pokémon!"
-        />
-      </span>
+      <span class="logo"
+        ><a href="index.html" class="logo__link"
+          ><img
+            class="logo__img"
+            src="img/logo-pokemon.svg"
+            alt="pokemon logo" /></a
+      ></span>
       <div class="hamburger">
         <span class="bar first-bar"></span>
         <span class="bar second-bar"></span>
@@ -62,6 +61,14 @@
       <section class="main__heading">
         <h1>Pokédex App</h1>
         <h2>The <em>Original</em> 151 Pokémon</h2>
+        <span class="search__container">
+          <input
+            id="search"
+            type="search"
+            class="search__input"
+            placeholder="Search for your favorite pokémon!"
+          />
+        </span>
       </section>
       <section class="main__content">
         <ul class="pokemon-list"></ul>
@@ -78,6 +85,9 @@
           </div>
         </div>
       </div>
+      <button id="btn__top" class="btn__top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
     </main>
     <footer class="footer">
       <p>
