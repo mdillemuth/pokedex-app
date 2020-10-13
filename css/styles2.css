@@ -61,37 +61,21 @@ p {
 .navbar-brand img {
   width: 100px;
 }
-.modal-header,
-.modal-footer {
-  padding: 0.5em 2em;
-}
-.close {
-  font-size: 32px;
-}
 .modal-title {
   color: var(--pokemon-blue);
   font-size: 1.5em;
 }
-.modal-body {
+.stats {
+  font-family: var(--secondary-font);
+  font-size: 0.9em;
+  letter-spacing: 0.25px;
+  color: var(--text-color-dark);
   padding: 1em 2em;
-}
-.left-box {
-  height: 100%;
-}
-.left-box-lower {
-  color: var(--text-color-dark);
-  width: 100%;
-  text-align: center;
-  padding: 1em;
-  border-top: 2.5px solid var(--pokemon-blue);
   border-radius: 5px;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.12);
-}
-.right-box {
-  height: 100%;
-  padding: 1em;
   border-top: 2.5px solid var(--pokemon-yellow);
-  border-radius: 5px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.12);
-  color: var(--text-color-dark);
+}
+.modal-header,
+.modal-footer {
+  padding: 1em 2em;
 }

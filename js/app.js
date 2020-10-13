@@ -128,16 +128,10 @@ let pokemonRepository = (() => {
   function showDetails(pokemon) {
     let modalTitle = document.querySelector("#modalTitle");
     let modalText = document.querySelector("#modalText");
-    let modalText2 = document.querySelector(".left-box-lower");
     let modalImg = document.querySelector("#modalImg");
     let modalImg2 = document.querySelector("#modalImg2");
 
-    let nextModal = document.querySelector("#next");
-    let prevModal = document.querySelector("#previous");
-
     $("pokemon-list-item").click(modalShow);
-    nextModal.click(modalNext);
-    prevModal.click(modalPrevious);
 
     // Loops through stats to prepare data for modal
     function modalStats() {
@@ -158,18 +152,8 @@ let pokemonRepository = (() => {
       modalImg.setAttribute("src", `${pokemon.imageUrlFront}`);
       modalImg2.setAttribute("src", `${pokemon.imageUrlBack}`);
       modalText.innerHTML = modalStats();
-      modalText2.innerHTML = `Height: ${pokemon.height / 10}m</br>Weight: ${
-        pokemon.weight / 100
-      }kg`;
       $("#pokemonModal").modal("show");
     }
-
-    let x = document.querySelector(".pokemon-list-item");
-    function modalNext() {
-      modalShow(x.nextElementSibling);
-    }
-
-    function modalPrevious() {}
 
     // This is where my timeout problem was...
     loadDetails(pokemon).then(() => {
