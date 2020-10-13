@@ -65,15 +65,17 @@ p {
   color: var(--pokemon-blue);
   font-size: 1.5em;
 }
-.stats {
-  font-family: var(--secondary-font);
-  font-size: 0.9em;
-  letter-spacing: 0.25px;
-  color: var(--text-color-dark);
-  padding: 1em 2em;
+.card-stats {
+  font-size: 0.75em;
+  border: none;
   border-radius: 5px;
-  border-top: 2.5px solid var(--pokemon-yellow);
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.1);
+}
+#poke__card--header {
+  font-size: 1.25em;
+  background-color: var(--pokemon-blue);
+  color: var(--text-color);
+  letter-spacing: 0.25px;
 }
 .modal-header,
 .modal-footer {

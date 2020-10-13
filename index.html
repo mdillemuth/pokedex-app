@@ -86,7 +86,7 @@
         <ul class="pokemon-list list-group list-unstyled"></ul>
       </div>
       <div class="modal" id="pokemonModal" tabindex="-1">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header d-flex align-items-center">
               <h5 id="modalTitle" class="modal-title">Modal title</h5>
@@ -118,8 +118,15 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-6-md mx-auto stats">
-                    <div id="modalText"></div>
+                  <div class="col-6-md mx-auto">
+                    <div class="card card-stats">
+                      <div class="card-header" id="poke__card--header">
+                        Stats
+                      </div>
+                      <div class="card-body">
+                        <div class="card-text" id="modalText"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
