@@ -2,13 +2,8 @@
   --pokemon-yellow: #ffde00;
   --pokemon-blue: #3b4cca;
   --pokemon-red: #ff0000;
-  --text-color: #fafafa;
-  --text-color-dark: #282828;
   --primary-font: fira-sans, sans-serif;
   --secondary-font: roboto, sans-serif;
-}
-html {
-  font-size: 16px;
 }
 @font-face {
   font-family: fira-sans;
@@ -18,43 +13,48 @@ html {
   font-family: roboto;
   src: url("../fonts/Roboto-Regular.ttf");
 }
-h1,
-h3,
+h1 {
+  font-family: var(--primary-font);
+  font-size: 1.75em;
+  color: var(--pokemon-blue);
+}
+h2 {
+  font-family: var(--secondary-font);
+  font-size: 1.5em;
+}
+h3 {
+  font-family: var(--primary-font);
+  font-size: 1em;
+}
+
 li,
 a {
   font-family: var(--primary-font);
   color: var(--pokemon-blue);
-  letter-spacing: 1px;
-  font-weight: 400;
 }
-h1 {
-  font-size: 2em;
-  font-weight: 600;
-  letter-spacing: 0.25px;
+h4,
+h5,
+h6 {
+  font-family: var(--secondary-font);
 }
 h2 {
-  font-size: 1.5em;
-  font-weight: 400;
+  font-family: var(--secondary-font);
   color: var(--pokemon-red);
-  letter-spacing: 0.25px;
 }
 p {
-  font-size: 1em;
   font-family: var(--secondary-font);
-  font-weight: 400;
-  color: #ffffff;
 }
+/* The pokemon buttons as they appear on main page */
 .list-group-item {
-  font-size: 1.1em;
-  font-family: var(--primary-font);
-  color: #ffffff;
-  background-color: var(--pokemon-blue);
   width: 200px;
+  font-family: var(--primary-font);
+  background-color: var(--pokemon-blue);
 }
 
-/* ===== GENERAL OVERWRITES ===== */
-
-/* LOGO */
+/* ===== NAVBAR OVERWRITES ===== */
+.navbar {
+  background-color: var(--pokemon-blue);
+}
 .navbar-brand img {
   width: 100px;
 }
@@ -62,59 +62,57 @@ p {
 /* ===== MODAL OVERWRITES ===== */
 .modal-title {
   color: var(--pokemon-blue);
+}
+
+/* ===== POKEMON MODAL ===== */
+#modalTitle {
   font-size: 1.5em;
 }
-.modal-content {
-  border: none;
+#modalCloseBtn {
+  color: red;
+  opacity: 0.75;
+  font-size: 1.5em;
 }
-.modal-header,
-.modal-footer {
-  padding: 1em 2em;
+#modalCloseBtn:hover,
+#modalCloseBtn:focus {
+  opacity: 1;
 }
-button.close {
-  outline: none;
-}
-button.close:hover,
-button.close:focus {
-  color: unset;
-}
-/* ===== POKEMON MODAL ===== */
-.card-stats {
+.card {
   font-size: 0.75em;
-  width: 200px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.1);
 }
-#poke__card--header {
-  font-size: 1.25em;
+.card-header {
   background-color: var(--pokemon-blue);
-  color: #ffffff;
-  letter-spacing: 0.25px;
 }
 
 /* ===== CONTACT FORM MODAL ===== */
-.modal-header-contact {
-  font-size: 0.9em;
-  background-color: var(--pokemon-blue);
-  color: #ffffff;
+#modalTitleForm {
+  font-size: 1.25em;
 }
-.modal-title-contact {
-  color: #ffffff;
+.modal-header-contact {
+  background-color: var(--pokemon-blue);
 }
 .modal-subtitle-contact {
-  padding: 1em 2em;
   color: var(--pokemon-blue);
-}
-.close-contact {
-  color: #ffffff;
-  opacity: 0.75;
+  font-size: 1.2em;
 }
 textarea {
   resize: vertical;
   min-height: 100px;
 }
-.form-btn {
+form .btn {
   background-color: var(--pokemon-blue);
-  border: none;
+}
+#name:focus,
+#email:focus,
+#message:focus {
+  background-color: var(--light);
+}
+#submit:hover {
+  opacity: 0.9;
+}
+
+/* OVERWRITES USING !IMPORTANT */
+button {
+  outline: none !important;
+  box-shadow: none !important;
 }

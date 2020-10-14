@@ -71,7 +71,8 @@ let pokemonRepository = (() => {
       "pokemon-list-item",
       "list-group-item",
       "mx-auto",
-      "my-1"
+      "my-1",
+      "text-white"
     );
 
     // Shows modal when button is clicked
