@@ -38,7 +38,7 @@
     <title>Pokédex App</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md py-3 px-5">
+    <nav class="navbar navbar-expand-md sticky-top py-1 px-5">
       <a href="index.html" class="navbar-brand"
         ><img class="mr-3" src="img/logo-pokemon.svg" alt="pokemon logo"
       /></a>
@@ -81,17 +81,22 @@
         </form>
       </div>
     </nav>
-    <main class="container">
-      <div class="my-3">
+    <button class="text-white border-0 rounded" id="scrollBtn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <main class="container bg-white border-0 rounded py-1 my-3">
+      <section class="my-3">
         <h1 class="text-center">Pokédex App</h1>
         <h2 class="text-center">The Original 151 Pokémon</h2>
         <ul class="pokemon-list list-group list-unstyled"></ul>
-      </div>
-      <div class="modal fade" id="pokemonModal" tabindex="-1">
+      </section>
+      <section class="modal fade" id="pokemonModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border-0">
             <div
-              class="modal-header px-4 bg-light border-0 d-flex align-items-center"
+              class="modal-header px-4 border-0 d-flex align-items-center"
+              id="modalHeaderPokemon"
             >
               <h5 id="modalTitle" class="modal-title"></h5>
               <button
@@ -105,9 +110,9 @@
               </button>
             </div>
             <div class="modal-body p-3">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-6-md mx-auto">
+              <div class="container">
+                <div class="row mb-1">
+                  <div class="col- mx-auto">
                     <img
                       src="#"
                       alt="Pokemon"
@@ -123,11 +128,25 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col mx-auto">
+                  <div class="col-8 mx-auto">
                     <div class="card border-0 shadow-sm">
-                      <div class="card-header text-white">Stats</div>
-                      <div class="card-body">
-                        <div class="card-text" id="modalText"></div>
+                      <div
+                        class="card-header text-white d-flex justify-content-between"
+                        data-toggle="collapse"
+                        data-target="#collapseOne"
+                        role="button"
+                      >
+                        <span> Stats </span>
+                        <span><i class="fas fa-plus"></i></span>
+                      </div>
+                      <div
+                        id="collapseOne"
+                        class="collapse"
+                        aria-expanded="false"
+                      >
+                        <div class="card-body">
+                          <div class="card-text" id="modalText"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -149,9 +168,9 @@
             </div> -->
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="modal fade" id="contactModal" tabindex="-1">
+      <section class="modal fade" id="contactModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border-0">
             <div
@@ -208,9 +227,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
-    <footer class="container-fluid bg-light py-3">
+    <footer class="container-fluid py-1 bg-light" id="footer">
       <div class="row">
         <div class="col">
           <p class="text-center">
@@ -224,10 +243,7 @@
       <div class="row">
         <div class="col">
           <p class="text-center">
-            <a
-              class="link__accent"
-              href="https://www.mattdillemuth.com"
-              target="_blank"
+            <a href="https://www.mattdillemuth.com" target="_blank"
               >mattdillemuth.com</a
             >
           </p>

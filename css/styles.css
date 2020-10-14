@@ -1,3 +1,4 @@
+/* ===== VARIABLES ===== */
 :root {
   --pokemon-yellow: #ffde00;
   --pokemon-blue: #3b4cca;
@@ -5,6 +6,7 @@
   --primary-font: fira-sans, sans-serif;
   --secondary-font: roboto, sans-serif;
 }
+/* ===== FONTS ===== */
 @font-face {
   font-family: fira-sans;
   src: url("../fonts/FiraSans-Regular.ttf");
@@ -15,12 +17,12 @@
 }
 h1 {
   font-family: var(--primary-font);
-  font-size: 1.75em;
+  font-size: 2em;
   color: var(--pokemon-blue);
 }
 h2 {
   font-family: var(--secondary-font);
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 h3 {
   font-family: var(--primary-font);
@@ -51,6 +53,24 @@ p {
   background-color: var(--pokemon-blue);
 }
 
+/* ===== GENERAL ===== */
+body {
+  background-color: var(--pokemon-yellow);
+  position: relative;
+}
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+#scrollBtn {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 32px;
+  background-color: var(--pokemon-red);
+  z-index: 99;
+}
+
 /* ===== NAVBAR OVERWRITES ===== */
 .navbar {
   background-color: var(--pokemon-blue);
@@ -65,8 +85,11 @@ p {
 }
 
 /* ===== POKEMON MODAL ===== */
+#modalHeaderPokemon {
+  background-color: var(--pokemon-yellow);
+}
 #modalTitle {
-  font-size: 1.5em;
+  font-size: 24px;
 }
 #modalCloseBtn {
   color: red;
@@ -78,10 +101,13 @@ p {
   opacity: 1;
 }
 .card {
-  font-size: 0.75em;
+  font-size: 14px;
 }
 .card-header {
   background-color: var(--pokemon-blue);
+}
+.card-body {
+  color: var(--pokemon-blue);
 }
 
 /* ===== CONTACT FORM MODAL ===== */
@@ -111,8 +137,14 @@ form .btn {
   opacity: 0.9;
 }
 
+/* ===== FOOTER ===== */
+/* ///// TODO (positioning) ///// */
+
 /* OVERWRITES USING !IMPORTANT */
 button {
   outline: none !important;
   box-shadow: none !important;
+}
+main {
+  max-width: 300px !important;
 }
