@@ -1,4 +1,3 @@
-/* *===== VARIABLES =====* */
 :root {
   --pokemon-yellow: #ffde00;
   --pokemon-blue: #3b4cca;
@@ -8,21 +7,6 @@
   --primary-font: fira-sans, sans-serif;
   --secondary-font: roboto, sans-serif;
 }
-
-/* *===== RESET =====* */
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-li,
-a {
-  outline: none;
-  list-style: none;
-  text-decoration: none;
-}
-
-/* *==== FONTS =====* */
 html {
   font-size: 16px;
 }
@@ -43,10 +27,6 @@ a {
   letter-spacing: 1px;
   font-weight: 400;
 }
-.link__accent {
-  color: var(--text-color);
-  font-weight: normal;
-}
 h1 {
   font-size: 2em;
   font-weight: 600;
@@ -62,446 +42,79 @@ p {
   font-size: 1em;
   font-family: var(--secondary-font);
   font-weight: 400;
-  color: var(--text-color);
-}
-.btn {
-  font-size: 1.1em;
-  font-family: var(--primary-font);
-  color: var(--text-color-dark);
-}
-
-/* *===== PAGE LAYOUT =====* */
-body {
-  position: relative;
-  min-height: 100vh;
-  background: no-repeat url("../img/background2.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  font-family: Arial, Helvetica, sans-serif;
-  display: grid;
-  grid-template-columns: 50px 1fr 50px;
-  grid-template-rows: 75px 1fr 75px;
-  grid-template-areas:
-    ". header ."
-    ". main ."
-    ". footer .";
-}
-.header {
-  grid-area: header;
-}
-.main {
-  grid-area: main;
-  overflow: hidden;
-  background-color: var(--text-color);
-  padding: 0 2em;
-  padding-bottom: 2em;
-  border-radius: 5px;
-  justify-self: center;
-}
-.footer {
-  grid-area: footer;
-}
-
-/* *===== HEADER *===== */
-.logo__img {
-  width: 6em;
-}
-.header {
-  /* Z index to hide scroll-to-top btn on mobile */
-  z-index: 99;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header__nav {
-  transition: 300ms all ease-in-out;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 250px;
-  display: none;
-  background-color: var(--text-color);
-}
-.nav__list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: 100px;
-}
-.nav__list--item {
-  text-align: center;
-  width: 100%;
-  padding: 1em;
-}
-.nav__list--link {
-  color: var(--pokemon-blue);
-}
-.nav__list--link:hover,
-.nav__list--link:focus {
-  font-weight: bold;
-}
-.shift {
-  display: unset;
-  position: fixed;
-}
-
-/* *===== SEARCH BAR =====* */
-.search__input {
-  border: 2px solid var(--pokemon-blue);
-  width: 100%;
-  margin-top: 1em;
-  border-radius: 5px;
-  padding: 0.75em 1.5em;
-  outline: none;
-  font-family: var(--secondary-font);
-}
-.search__input::placeholder {
-  font-family: var(--secondary-font);
-  font-style: italic;
-  opacity: 0.75;
-  color: #3b4ccaaa;
-}
-.search__input:focus {
-  border-color: var(--pokemon-yellow);
-  box-shadow: 0 0 1px 1px var(--pokemon-yellow);
-}
-
-/* *===== HAMBURGER *===== */
-.header__nav--link {
-  letter-spacing: 1px;
   color: #ffffff;
 }
-.header__nav--link:hover,
-.header__nav--link:focus {
-  color: white;
-  border-left-color: #ffffff;
-  font-weight: bold;
-}
-.hamburger {
-  /* Needs to stay below modal */
-  z-index: 900;
-}
-.hamburger:hover {
-  cursor: pointer;
-}
-.hamburger:hover span {
-  background-color: var(--pokemon-yellow);
-}
-.hamburger span {
-  display: block;
-  background: var(--text-color);
-  margin: 6px 0;
-  height: 6px;
-  width: 36px;
-  border-radius: 2px;
-  position: relative;
-  transition: all 200ms ease-in-out;
-}
-.change.first-bar {
-  background: var(--pokemon-blue);
-  top: 11px;
-  transform: rotate(45deg);
-}
-.change.second-bar {
-  opacity: 0;
-  background: var(--pokemon-blue);
-}
-.change.third-bar {
-  background: var(--pokemon-blue);
-  bottom: 13px;
-  transform: rotate(-45deg);
-}
-
-/* *===== BACK TO TOP BUTTON =====* */
-.btn__top {
-  display: none;
-  position: fixed;
-  bottom: 0.5em;
-  right: 1em;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 2em;
-  background-color: var(--pokemon-red);
-  color: var(--text-color);
-  padding: 0.25em 0.5em;
-  border-radius: 5px;
-  transition: all 200ms ease-in-out;
-}
-.btn__top:hover,
-.btn__top:focus {
-  background-color: #cc0000;
-  transform: scale(1.05);
-}
-
-/* *===== MAIN CONTENT *===== */
-.main__heading {
-  width: fit-content;
-  height: fit-content;
-  text-align: center;
-  margin: 2em auto;
-}
-.btn {
-  padding: 1em 2em;
-  margin: 0.1em 0;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  display: inline-block;
-  transition-duration: 0.25s;
-  cursor: pointer;
+.list-group-item {
+  font-size: 1.1em;
+  font-family: var(--primary-font);
+  color: #ffffff;
   background-color: var(--pokemon-blue);
-  color: var(--pokemon-yellow);
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-}
-.btn:hover,
-.btn:focus {
-  transform: scale(1.05);
+  width: 200px;
 }
 
-/* ===== MODAL ===== */
-.modal__container {
-  display: none;
+/* ===== GENERAL OVERWRITES ===== */
+
+/* LOGO */
+.navbar-brand img {
+  width: 100px;
 }
-.modal__container--active {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  overflow: auto;
-  display: grid;
-}
-.modal {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  border: none;
-  border-top: 3px solid var(--pokemon-red);
-  border-radius: 5px;
-  padding: 1em;
-  width: fit-content;
-  height: fit-content;
-  max-width: 700px;
-  max-height: 700px;
-}
-.modal__title {
+
+/* ===== MODAL OVERWRITES ===== */
+.modal-title {
   color: var(--pokemon-blue);
-  font-family: var(--primary-font);
   font-size: 1.5em;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin-top: 0.5em;
 }
-.modal__content {
-  max-width: 100%;
-  min-height: 150px;
-  max-height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  justify-items: center;
-  align-items: center;
-  padding: 1em;
-  gap: 1.5em;
-}
-.modal__img {
-  width: 100%;
-  max-width: 100%;
-}
-.modal__text {
-  width: 100%;
-  height: 100%;
-  max-height: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  padding: 1em;
-  background-color: #fff;
+.modal-content {
   border: none;
-  border-top: 3px solid var(--pokemon-yellow);
-  border-radius: 5px;
-  box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.075);
-  font-size: 0.8em;
-  color: var(--text-color-dark);
-  letter-spacing: 1px;
-  line-height: 1.25em;
 }
-.modal__btn {
-  background-color: inherit;
-  width: fit-content;
-  align-self: flex-end;
-  border: none;
+.modal-header,
+.modal-footer {
+  padding: 1em 2em;
+}
+button.close {
   outline: none;
-  cursor: pointer;
-  transition: all 300ms;
-  color: var(--text-color-dark);
-  padding: 0;
-  margin: 0;
 }
-.modal__btn:hover {
-  color: var(--pokemon-red);
+button.close:hover,
+button.close:focus {
+  color: unset;
 }
-.modal__btn--icon {
-  font-size: 2em;
-}
-
-/* *===== FOOTER =====* */
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* *===== CONTACT =====* */
-.main__contact {
-  width: 100%;
-  max-width: 700px;
-  height: fit-content;
-}
-.contact__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1em;
+/* ===== POKEMON MODAL ===== */
+.card-stats {
+  font-size: 0.75em;
+  width: 200px;
   border: none;
   border-radius: 5px;
-  background-color: var(--text-color);
-  width: 100%;
-  max-width: 700px;
-  margin: 1em auto;
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.1);
 }
-.contact__heading {
-  color: var(--pokemon-blue);
-  font-size: 1.5em;
-  text-align: center;
-  margin-bottom: 0.25em;
+#poke__card--header {
+  font-size: 1.25em;
+  background-color: var(--pokemon-blue);
+  color: #ffffff;
+  letter-spacing: 0.25px;
 }
-.contact__subheading {
-  color: var(--pokemon-red);
-  text-align: center;
-  font-size: 1em;
-  margin-bottom: 1em;
-}
-.contact__label {
-  color: var(--text-color-dark);
-  font-family: var(--primary-font);
-  font-size: 1em;
-}
-.contact__input {
-  font-family: var(--secondary-font);
+
+/* ===== CONTACT FORM MODAL ===== */
+.modal-header-contact {
   font-size: 0.9em;
-  display: block;
-  width: 100%;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.075);
-  outline: none;
-  padding: 1em;
-  margin-bottom: 1em;
+  background-color: var(--pokemon-blue);
+  color: #ffffff;
 }
-.contact__input:focus {
-  border-color: var(--pokemon-yellow);
+.modal-title-contact {
+  color: #ffffff;
 }
-.contact__input::placeholder {
-  font-family: var(--secondary-font);
+.modal-subtitle-contact {
+  padding: 1em 2em;
+  color: var(--pokemon-blue);
 }
-textarea.contact__input {
+.close-contact {
+  color: #ffffff;
+  opacity: 0.75;
+}
+textarea {
   resize: vertical;
-  min-height: 125px;
+  min-height: 100px;
 }
-.btn__form {
-  color: var(--pokemon-yellow);
-}
-
-/* *===== CONTACT VALIDATION =====* */
-.error-message {
-  color: red;
-  font-size: 0.9em;
-  font-family: var(--secondary-font);
-  font-style: italic;
-  margin-bottom: 1em;
-  text-align: left;
-}
-.error__input {
-  border-color: red;
-}
-
-/* *===== MEDIA QUERIES =====* */
-@media all and (min-width: 700px) {
-  html {
-    font-size: 17px;
-  }
-  .body {
-    grid-template-columns: 100px 1fr 100px;
-  }
-  .header__nav {
-    display: block;
-    position: unset;
-    height: unset;
-    width: unset;
-    background-color: transparent;
-    padding: unset;
-  }
-  .nav__list {
-    margin-top: unset;
-    flex-direction: row;
-  }
-  .nav__list--item {
-    padding: 0.5em 1em;
-  }
-  .nav__list--item:hover,
-  .nav__list--item:focus {
-    background-color: unset;
-  }
-  .nav__list--link {
-    color: var(--text-color);
-    font-weight: bold;
-  }
-  a.nav__list--link:hover {
-    color: var(--pokemon-yellow);
-  }
-  .hamburger {
-    display: none;
-  }
-}
-@media all and (min-width: 1020px) {
-  html {
-    font-size: 18px;
-  }
-  .body {
-    grid-template-columns: 100px 1fr 100px;
-  }
-}
-@media all and (min-width: 1440px) {
-  html {
-    font-size: 18px;
-  }
-  .body {
-    grid-template-columns: 150px 1fr 150px;
-  }
-}
-@media all and (min-width: 1800px) {
-  html {
-    font-size: 20px;
-  }
-  .body {
-    grid-template-columns: 200px 1fr 200px;
-  }
-}
-@media all and (min-width: 2200px) {
-  html {
-    font-size: 22px;
-  }
-  .body {
-    grid-template-columns: 250px 1fr 250px;
-  }
+.form-btn {
+  background-color: var(--pokemon-blue);
+  border: none;
 }

@@ -178,3 +178,8 @@ pokemonRepository.loadList().then(() => {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
+// Contact Modal
+$("#contactButton").click(() => {
+  $("#contactModal").modal("show");
+});
