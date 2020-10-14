@@ -1,6 +1,5 @@
 // Pokedex object
 let pokemonRepository = (() => {
-  // Pokedex database of pokemon objects
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=151";
 
@@ -35,21 +34,16 @@ let pokemonRepository = (() => {
       // User search input
       let search = $("#search").val().toLowerCase();
 
-      let appList = document.querySelector(".pokemon-list").children;
-      let arr = Array.from(appList);
+      // Makes array from the list hides non-matching elems
+      let arr = Array.from($(".pokemon-list-item"));
 
-      for (let i in arr) {
-        // returns full list if user enters a blank search
+      arr.forEach((elem) => {
         if (search.length === 0) {
-          arr[i].firstChild.style.display = "block";
+          elem.style.display = "block";
+        } else if (!elem.innerText.toLowerCase().includes(search)) {
+          elem.style.display = "none";
         }
-        // hides elements that don't contain the search input
-        else if (
-          // firstChild refers to the button element
-          !arr[i].firstChild.innerText.toLowerCase().includes(search)
-        )
-          arr[i].firstChild.style.display = "none";
-      }
+      });
     }
   })();
 
@@ -57,26 +51,21 @@ let pokemonRepository = (() => {
   function addListItem(pokemon) {
     // Select, create, and append to DOM
     let pokemonList = $(".pokemon-list");
-    let pokemonItem = document.createElement("li");
-    let pokemonButton = document.createElement("button");
-
-    pokemonItem.append(pokemonButton);
+    let pokemonItem = document.createElement("button");
     pokemonList.append(pokemonItem);
+    pokemonItem.innerText = capitalize(pokemon.name);
 
-    // Add pokemon name to button
-    pokemonButton.innerText = capitalize(pokemon.name);
-
-    // Add class to select in CSS
-    pokemonButton.classList.add(
+    pokemonItem.classList.add(
       "pokemon-list-item",
       "list-group-item",
+      "rounded",
       "mx-auto",
       "my-1",
       "text-white"
     );
 
     // Shows modal when button is clicked
-    pokemonButton.addEventListener("click", () => {
+    pokemonItem.addEventListener("click", () => {
       showDetails(pokemon);
     });
   }
@@ -165,7 +154,6 @@ let pokemonRepository = (() => {
   return {
     add: add,
     getAll: getAll,
-    search: search,
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
@@ -181,9 +169,11 @@ pokemonRepository.loadList().then(() => {
 });
 
 // Contact Modal
-$("#contactButton").click(() => {
-  $("#contactModal").modal("show");
-});
+let contactForm = (() => {
+  $("#contactButton").click(() => {
+    $("#contactModal").modal("show");
+  });
+})();
 
 // Scroll-to-top button
 let scrollToTop = (() => {
