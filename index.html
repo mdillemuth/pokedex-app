@@ -131,24 +131,54 @@
                 <div class="row">
                   <div class="col-8 mx-auto">
                     <div class="card border-0 shadow-sm">
-                      <div
-                        class="card-header text-white d-flex justify-content-between"
-                        data-toggle="collapse"
-                        data-target="#collapseOne"
-                        role="button"
-                      >
-                        <span> Stats </span>
-                        <span><i class="fas fa-plus"></i></span>
-                      </div>
-                      <div
-                        id="collapseOne"
-                        class="collapse"
-                        aria-expanded="false"
-                      >
-                        <div class="card-body">
-                          <div class="card-text" id="modalText"></div>
+                      <section>
+                        <div
+                          class="card-header text-white d-flex justify-content-between"
+                          id="statsHeader"
+                          data-toggle="collapse"
+                          data-target="#collapseOne"
+                          role="button"
+                        >
+                          <span>Stats</span>
+                          <span><i class="fas fa-plus"></i></span>
                         </div>
-                      </div>
+                        <div
+                          id="collapseOne"
+                          class="collapse"
+                          aria-expanded="false"
+                        >
+                          <div class="card-body">
+                            <div
+                              class="card-text text-dark"
+                              id="cardStats"
+                            ></div>
+                          </div>
+                        </div>
+                      </section>
+                      <section>
+                        <div
+                          class="card-header text-white d-flex justify-content-between"
+                          id="abilitiesHeader"
+                          data-toggle="collapse"
+                          data-target="#collapseTwo"
+                          role="button"
+                        >
+                          <span>Abilities</span>
+                          <span><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div
+                          id="collapseTwo"
+                          class="collapse"
+                          aria-expanded="false"
+                        >
+                          <div class="card-body">
+                            <div
+                              class="card-text text-dark"
+                              id="cardAbilities"
+                            ></div>
+                          </div>
+                        </div>
+                      </section>
                     </div>
                   </div>
                 </div>

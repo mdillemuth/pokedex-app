@@ -104,8 +104,7 @@ let pokemonRepository = (() => {
       .then((details) => {
         item.imageUrlFront = details.sprites.front_default;
         item.imageUrlBack = details.sprites.back_default;
-        item.height = details.height;
-        item.weight = details.weight;
+        item.abilities = details.abilities;
         item.types = details.types;
         item.stats = details.stats;
       })
@@ -117,7 +116,8 @@ let pokemonRepository = (() => {
   // Modal
   function showDetails(pokemon) {
     let modalTitle = document.querySelector("#modalTitle");
-    let modalText = document.querySelector("#modalText");
+    let modalCardStats = document.querySelector("#cardStats");
+    let modalCardAbilities = document.querySelector("#cardAbilities");
     let modalImg = document.querySelector("#modalImg");
     let modalImg2 = document.querySelector("#modalImg2");
 
@@ -136,12 +136,22 @@ let pokemonRepository = (() => {
       return stats.join("</br>");
     }
 
+    function modalAbilities() {
+      let abilities = [];
+      for (let i in pokemon.abilities) {
+        abilities.push(`${capitalize(pokemon.abilities[i].ability.name)}`);
+      }
+      return abilities.join("</br>");
+    }
+
     // Adds the pokemon information to the modal elements
     function modalShow() {
       modalTitle.innerText = capitalize(pokemon.name);
       modalImg.setAttribute("src", `${pokemon.imageUrlFront}`);
       modalImg2.setAttribute("src", `${pokemon.imageUrlBack}`);
-      modalText.innerHTML = modalStats();
+      modalCardStats.innerHTML = modalStats();
+      modalCardAbilities.innerHTML = modalAbilities();
+
       $("#pokemonModal").modal("show");
     }
 
