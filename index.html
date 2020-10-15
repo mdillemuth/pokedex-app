@@ -60,7 +60,7 @@
           </li>
           <li class="nav-item" role="presentation">
             <a href="#" class="nav-link" id="aboutButton" role="menuitem"
-              >About</a
+              >Information</a
             >
           </li>
           <li class="nav-item" role="presentation">
@@ -98,6 +98,9 @@
           />
         </form>
         <ul class="pokemon-list list-group list-unstyled"></ul>
+        <p class="text-dark text-center mt-2">
+          Created by <a href="https://www.mattdillemuth.com">Matt Dillemuth</a>
+        </p>
       </div>
 
       <!-- Pokemon Modal -->
@@ -326,6 +329,92 @@
           </div>
         </div>
       </div>
+
+      <!-- About modal -->
+      <div class="modal fade" id="aboutModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content border-0">
+            <div
+              class="modal-header modal-header-contact d-flex align-items-center"
+            >
+              <h3 class="modal-title text-white">About the Project</h3>
+              <button
+                type="button"
+                class="close text-white"
+                id="modalCloseBtnAbout"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                You can find the code repository
+                <a role="link" href="https://github.com/mdillemuth/pokedex-app"
+                  >on GitHub</a
+                >
+              </p>
+              <h4 class="h5">Technology Used</h4>
+              <ul>
+                <li class="text-dark">HTML, CSS, & JavaScript</li>
+                <ul>
+                  <li class="text-dark">Libraries: Bootstrap & jQuery</li>
+                </ul>
+                <li class="text-dark">RESTful API</li>
+                <ul>
+                  <li class="text-dark">
+                    <a role="link" target="_blank" href="https://pokeapi.co/"
+                      >PokéAPI</a
+                    >
+                  </li>
+                </ul>
+              </ul>
+              <h4 class="h5">Features Implemented</h4>
+              <ul>
+                <li class="text-dark">Search function</li>
+                <li class="text-dark">Contact form validation</li>
+                <li class="text-dark">Dynamic HTML markup</li>
+                <li class="text-dark">Modal displays</li>
+              </ul>
+              <h4 class="h5">
+                About Me,
+                <a href="https://www.mattdillemuth.com" target="_blank"
+                  >Matt Dillemuth</a
+                >
+              </h4>
+              <ul>
+                <li class="text-dark">
+                  Has been practicing web-development since 2020
+                </li>
+                <li class="text-dark">
+                  A student of CareerFoundry's
+                  <a
+                    role="link"
+                    href="https://careerfoundry.com/en/courses/become-a-web-developer/"
+                    target="_blank"
+                    >Full Stack Program</a
+                  >
+                </li>
+                <li class="text-dark">
+                  Picks charmander when given the choice of bulbasaur,
+                  charmander, or squirtle
+                </li>
+                <li class="text-dark">
+                  Has
+                  <a
+                    role="link"
+                    href="https://www.mattdillemuth.com/work"
+                    target="_blank"
+                    >other projects</a
+                  >
+                  for you to view!
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -340,6 +429,5 @@
     <script src="js/polyfill-promise-min.js"></script>
     <script src="js/polyfill-fetch.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/tota11y.min.js"></script>
   </body>
 </html>

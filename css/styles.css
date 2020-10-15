@@ -40,7 +40,7 @@ p {
   font-family: var(--secondary-font);
 }
 /* The pokemon buttons as they appear on main page */
-.list-group-item {
+.pokemon-list .list-group-item {
   width: 200px;
   font-family: var(--primary-font);
   background-color: var(--pokemon-blue);
@@ -117,7 +117,6 @@ a {
 #modalCloseBtn {
   color: var(--pokemon-red);
   opacity: 0.75;
-  font-size: 1.5em;
 }
 #modalCloseBtn:hover,
 #modalCloseBtn:focus {
@@ -147,17 +146,11 @@ a {
 }
 
 /* ===== CONTACT FORM MODAL ===== */
-#modalTitleForm {
-  font-size: 1.25em;
-}
 .modal-header-contact {
   background-color: var(--pokemon-blue);
 }
 #submit {
   background-color: var(--pokemon-blue);
-}
-.modal-subtitle-contact {
-  font-size: 1.2em;
 }
 textarea {
   resize: vertical;
@@ -171,4 +164,9 @@ textarea {
 button {
   outline: none !important;
   box-shadow: none !important;
+}
+
+/* About Modal */
+#aboutModal h4 {
+  color: var(--pokemon-blue);
 }

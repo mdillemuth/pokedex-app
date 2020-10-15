@@ -298,3 +298,14 @@ let scrollToTop = (() => {
 
   scrollBtn.addEventListener("click", topFunction);
 })();
+
+// About Modal
+let about = (() => {
+  // Displays about modal
+  let aboutModal = (() => {
+    $("#aboutButton").click(() => {
+      // Show contact modal
+      $("#aboutModal").modal("show");
+    });
+  })();
+})();
