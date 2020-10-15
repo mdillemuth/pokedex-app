@@ -240,6 +240,10 @@ let contact = (() => {
   // Displays contact modal
   let contactForm = (() => {
     $("#contactButton").click(() => {
+      // Reset form validation styles
+      $("form").removeClass("was-validated");
+
+      // Show contact modal
       $("#contactModal").modal("show");
     });
   })();
