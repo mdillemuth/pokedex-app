@@ -103,6 +103,9 @@ body {
 .card {
   font-size: 14px;
 }
+.card-header#infoHeader {
+  background-color: var(--green);
+}
 .card-header#statsHeader {
   background-color: var(--pokemon-blue);
 }

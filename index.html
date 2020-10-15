@@ -134,16 +134,40 @@
                       <section>
                         <div
                           class="card-header text-white d-flex justify-content-between"
-                          id="statsHeader"
+                          id="infoHeader"
                           data-toggle="collapse"
                           data-target="#collapseOne"
                           role="button"
                         >
-                          <span>Stats</span>
+                          <span>Information</span>
                           <span><i class="fas fa-plus"></i></span>
                         </div>
                         <div
                           id="collapseOne"
+                          class="collapse"
+                          aria-expanded="false"
+                        >
+                          <div class="card-body">
+                            <div
+                              class="card-text text-dark"
+                              id="cardInfo"
+                            ></div>
+                          </div>
+                        </div>
+                      </section>
+                      <section>
+                        <div
+                          class="card-header text-white d-flex justify-content-between"
+                          id="statsHeader"
+                          data-toggle="collapse"
+                          data-target="#collapseTwo"
+                          role="button"
+                        >
+                          <span>Base Stats</span>
+                          <span><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div
+                          id="collapseTwo"
                           class="collapse"
                           aria-expanded="false"
                         >
@@ -160,14 +184,14 @@
                           class="card-header text-white d-flex justify-content-between"
                           id="abilitiesHeader"
                           data-toggle="collapse"
-                          data-target="#collapseTwo"
+                          data-target="#collapseThree"
                           role="button"
                         >
                           <span>Abilities</span>
                           <span><i class="fas fa-plus"></i></span>
                         </div>
                         <div
-                          id="collapseTwo"
+                          id="collapseThree"
                           class="collapse"
                           aria-expanded="false"
                         >
