@@ -143,6 +143,7 @@ let pokemonRepository = (() => {
     function modalStats() {
       // Creates array to hold all stats info
       let stats = [];
+
       // Loops through and pushes stats
       for (let i in pokemon.stats) {
         stats.push(
@@ -151,6 +152,7 @@ let pokemonRepository = (() => {
           }`
         );
       }
+
       // Returns info as a string joined with line breaks
       return stats.join("</br>");
     }
@@ -159,10 +161,12 @@ let pokemonRepository = (() => {
     function modalAbilities() {
       // Creates array to hold abilitiies info
       let abilities = [];
+
       // Loops through and pushes abilities
       for (let i in pokemon.abilities) {
         abilities.push(`${capitalize(pokemon.abilities[i].ability.name)}`);
       }
+
       // Returns info as a string joined with line breaks
       return abilities.join("</br>");
     }
@@ -193,15 +197,22 @@ let pokemonRepository = (() => {
 
     // Adds the pokemon information to the modal elements
     function modalShow() {
+      // Resets the card menus to closed when opening new modal
+      let accordionMenus = $(".collapse");
+      accordionMenus.removeClass("show");
+
       // Adds modal header with pokemon's name
       modalTitle.innerText = capitalize(pokemon.name);
+
       // Adds modal images of front & back of pokemon
       modalImg.setAttribute("src", `${pokemon.imageUrlFront}`);
       modalImg2.setAttribute("src", `${pokemon.imageUrlBack}`);
+
       // Adds modal card content
       modalCardStats.innerHTML = modalStats();
       modalCardAbilities.innerHTML = modalAbilities();
       modalCardInfo.innerHTML = modalInfo();
+
       // Displays the modal
       $("#pokemonModal").modal("show");
     }
