@@ -70,7 +70,7 @@
             >
           </li>
         </ul>
-
+        <!-- Search function  -->
         <form class="form-inline">
           <input
             class="form-control border-0 shadow-none"
@@ -82,17 +82,20 @@
         </form>
       </div>
     </nav>
+    <!-- scrollToTop button  -->
     <button class="text-white border-0 rounded" id="scrollBtn">
       <i class="fas fa-arrow-up"></i>
     </button>
 
     <main class="container bg-white border-0 rounded py-1 my-3">
+      <!-- Page content and pokemon list -->
       <section class="my-3">
         <h1 class="text-center">Pokédex App</h1>
         <h2 class="text-center">The Original 151 Pokémon</h2>
         <ul class="pokemon-list list-group list-unstyled"></ul>
       </section>
 
+      <!-- Pokemon Modal -->
       <section class="modal fade" id="pokemonModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border-0">
@@ -209,23 +212,19 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                id="previous"
-                data-dismiss="modal"
-              >
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="previous">
                 Previous
               </button>
               <button type="button" id="next" class="btn btn-primary">
                 Next
               </button>
-            </div> -->
+            </div>
           </div>
         </div>
       </section>
 
+      <!-- Contact form modal -->
       <section class="modal fade" id="contactModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border-0">
