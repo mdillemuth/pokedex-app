@@ -66,8 +66,11 @@ let pokemonRepository = (() => {
       "rounded",
       "mx-auto",
       "my-1",
-      "text-white"
+      "text-white",
+      "p-2"
     );
+
+    pokemonItem.setAttribute("role", "listitem");
 
     // Pulls second level of content and displays all as modal
     pokemonItem.addEventListener("click", () => {

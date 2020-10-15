@@ -18,16 +18,13 @@
 }
 h1 {
   font-family: var(--primary-font);
-  font-size: 2em;
   color: var(--pokemon-blue);
 }
 h2 {
   font-family: var(--secondary-font);
-  font-size: 1.25em;
 }
 h3 {
   font-family: var(--primary-font);
-  font-size: 1em;
 }
 li,
 a {
@@ -96,13 +93,13 @@ a {
   color: var(--pokemon-yellow);
 }
 #search {
-  border: 2px solid white !important;
+  border: 2px solid transparent !important;
   box-shadow: none !important;
   outline: none !important;
   transition: all 300ms ease-in-out;
 }
 #search:focus {
-  border-color: var(--pokemon-yellow) !important;
+  border-color: var(--pokemon-blue) !important;
 }
 
 /* ===== MODAL OVERWRITES ===== */
