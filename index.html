@@ -92,6 +92,7 @@
         <h2 class="text-center">The Original 151 Pokémon</h2>
         <ul class="pokemon-list list-group list-unstyled"></ul>
       </section>
+
       <section class="modal fade" id="pokemonModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border-0">
@@ -229,7 +230,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border-0">
             <div
-              class="modal-header modal-header-contact d-flex align-items-center"
+              class="modal-header bg-primary modal-header-contact d-flex align-items-center"
             >
               <h3 id="modalTitleForm" class="modal-title text-white">
                 Thank you for using my app!
@@ -248,34 +249,70 @@
               <p class="modal-subtitle-contact text-left">
                 How can I improve your experience?
               </p>
-              <form action="">
+              <form
+                class="needs-validation"
+                novalidate
+                action="https://formspree.io/mattdillemuth@gmail.com"
+                method="POST"
+                name="pokedex-message"
+              >
                 <div class="form-group">
                   <label for="name">Name</label>
                   <input
                     type="text"
-                    class="form-control border-0 shadow-sm"
+                    class="form-control"
                     id="name"
+                    name="Name"
                     placeholder="Ash Ketchum"
+                    required
+                    maxlength="50"
                   />
+                  <div class="valid-feedback">
+                    <i class="fas fa-check mr-1"></i>Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>Please
+                    provide a name.
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
                   <input
                     type="email"
-                    class="form-control border-0 shadow-sm"
+                    class="form-control"
                     id="email"
+                    name="Email"
                     placeholder="ash.ketchum@pokemon.com"
+                    required
+                    maxlength="50"
                   />
+                  <div class="valid-feedback">
+                    <i class="fas fa-check mr-1"></i>Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>Please
+                    provide an email.
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="message">Message</label>
                   <textarea
                     id="message"
-                    class="form-control border-0 shadow-sm"
+                    name="Message"
+                    class="form-control"
                     placeholder="How do I defeat Team Rocket?!"
+                    required
+                    maxlength="500"
                   ></textarea>
+                  <div class="valid-feedback">
+                    <i class="fas fa-check mr-1"></i>Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>Please
+                    provide content for your message
+                  </div>
                 </div>
-                <button type="submit" id="submit" class="btn text-white">
+                <button type="submit" id="submit" class="btn btn-primary w-100">
                   Submit
                 </button>
               </form>

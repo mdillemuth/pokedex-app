@@ -78,6 +78,9 @@ body {
 .navbar-brand img {
   width: 100px;
 }
+.nav-item:hover {
+  opacity: 0.8;
+}
 
 /* ===== MODAL OVERWRITES ===== */
 .modal-title {
@@ -120,27 +123,12 @@ body {
 #modalTitleForm {
   font-size: 1.25em;
 }
-.modal-header-contact {
-  background-color: var(--pokemon-blue);
-}
 .modal-subtitle-contact {
-  color: var(--pokemon-blue);
   font-size: 1.2em;
 }
 textarea {
   resize: vertical;
   min-height: 100px;
-}
-form .btn {
-  background-color: var(--pokemon-blue);
-}
-#name:focus,
-#email:focus,
-#message:focus {
-  background-color: var(--light);
-}
-#submit:hover {
-  opacity: 0.9;
 }
 
 /* ===== FOOTER ===== */
