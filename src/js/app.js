@@ -28,12 +28,12 @@ let pokemonRepository = (() => {
   // Search database by name, needs to be IIFE
   (function search() {
     // Triggers filter search as user types
-    let searchBar = $('#search');
-    searchBar.addEventListener('input', searchFunction);
+
+    document.querySelector('#search').addEventListener('input', searchFunction);
 
     function searchFunction() {
       // User search input
-      let search = searchBar.val().toLowerCase();
+      let search = $('#search').val().toLowerCase();
 
       // Makes array from the list hides non-matching elems
       let arr = Array.from($('.pokemon-list-item'));

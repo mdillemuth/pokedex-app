@@ -59,6 +59,9 @@ p {
 }
 
 /* ===== GENERAL ===== */
+body {
+  background: url(../../img/background.jpg) no-repeat fixed center/cover;
+}
 main.container {
   background-color: var(--pokemon-yellow);
   max-width: 300px !important;
