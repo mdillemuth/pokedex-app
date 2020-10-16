@@ -2,18 +2,17 @@
 let pokemonRepository = (() => {
   // Array that holds pokemon objects added from API
   let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=151";
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
 
   // Capitalize first letter of pokemon name
   function capitalize(str) {
-    newStr = str.replace(/^\w/, (c) => c.toUpperCase());
-    return newStr;
+    return str.replace(/^\w/, (c) => c.toUpperCase());
   }
 
   // Add pokemon to database
   function add(pokemon) {
     // Input type validation
-    if (typeof pokemon !== "object") {
+    if (typeof pokemon !== 'object') {
       return 0;
     } else {
       // Adds pokemon object to the empty array
@@ -29,21 +28,21 @@ let pokemonRepository = (() => {
   // Search database by name, needs to be IIFE
   (function search() {
     // Triggers filter search as user types
-    let searchBar = document.querySelector("#search");
-    searchBar.addEventListener("input", searchFunction);
+    let searchBar = $('#search');
+    searchBar.addEventListener('input', searchFunction);
 
     function searchFunction() {
       // User search input
-      let search = $("#search").val().toLowerCase();
+      let search = searchBar.val().toLowerCase();
 
       // Makes array from the list hides non-matching elems
-      let arr = Array.from($(".pokemon-list-item"));
+      let arr = Array.from($('.pokemon-list-item'));
 
       arr.forEach((elem) => {
         if (search.length === 0) {
-          elem.style.display = "block";
+          elem.style.display = 'block';
         } else if (!elem.innerText.toLowerCase().includes(search)) {
-          elem.style.display = "none";
+          elem.style.display = 'none';
         }
       });
     }
@@ -52,28 +51,28 @@ let pokemonRepository = (() => {
   // Writes first level of content to page as list of buttons
   function addListItem(pokemon) {
     // Selects empty list that will hold list items
-    let pokemonList = $(".pokemon-list");
+    let pokemonList = $('.pokemon-list');
 
     // Creates list items and adds content (name)
-    let pokemonItem = document.createElement("button");
+    let pokemonItem = document.createElement('button');
     pokemonList.append(pokemonItem);
     pokemonItem.innerText = capitalize(pokemon.name);
 
     // Adds necessary classes to list item
     pokemonItem.classList.add(
-      "pokemon-list-item",
-      "list-group-item",
-      "rounded",
-      "mx-auto",
-      "my-1",
-      "text-white",
-      "p-2"
+      'pokemon-list-item',
+      'list-group-item',
+      'rounded',
+      'mx-auto',
+      'my-1',
+      'text-white',
+      'p-2'
     );
 
-    pokemonItem.setAttribute("role", "listitem");
+    pokemonItem.setAttribute('role', 'listitem');
 
     // Pulls second level of content and displays all as modal
-    pokemonItem.addEventListener("click", () => {
+    pokemonItem.addEventListener('click', () => {
       showDetails(pokemon);
     });
   }
@@ -135,12 +134,12 @@ let pokemonRepository = (() => {
     });
 
     // Empty modal selectors to add dynamic content to
-    let modalTitle = document.querySelector("#modalTitle");
-    let modalCardStats = document.querySelector("#cardStats");
-    let modalCardAbilities = document.querySelector("#cardAbilities");
-    let modalCardInfo = document.querySelector("#cardInfo");
-    let modalImg = document.querySelector("#modalImg");
-    let modalImg2 = document.querySelector("#modalImg2");
+    let modalTitle = document.querySelector('#modalTitle');
+    let modalCardStats = document.querySelector('#cardStats');
+    let modalCardAbilities = document.querySelector('#cardAbilities');
+    let modalCardInfo = document.querySelector('#cardInfo');
+    let modalImg = document.querySelector('#modalImg');
+    let modalImg2 = document.querySelector('#modalImg2');
 
     // Prepares stats content for modal
     function modalStats() {
@@ -157,7 +156,7 @@ let pokemonRepository = (() => {
       }
 
       // Returns info as a string joined with line breaks
-      return stats.join("</br>");
+      return stats.join('</br>');
     }
 
     // Prepares abilities content for modal
@@ -171,7 +170,7 @@ let pokemonRepository = (() => {
       }
 
       // Returns info as a string joined with line breaks
-      return abilities.join("</br>");
+      return abilities.join('</br>');
     }
 
     // Prepares information content for modal
@@ -184,7 +183,7 @@ let pokemonRepository = (() => {
       info.push(`Number: ${pokemon.id} of 151`);
       info.push(`Height: ${pokemon.height / 10}m`);
       info.push(`Weight: ${pokemon.weight / 100}kg`);
-      types.push("Types:");
+      types.push('Types:');
 
       // Loops through types
       for (let i in pokemon.types) {
@@ -192,24 +191,24 @@ let pokemonRepository = (() => {
       }
 
       // Slice removes final comma
-      types = types.join(" ").slice(0, -1);
+      types = types.join(' ').slice(0, -1);
       info.push(types);
       // Returns content as a string with line breaks
-      return info.join("</br>");
+      return info.join('</br>');
     }
 
     // Adds the pokemon information to the modal elements
     function modalShow() {
       // Resets the card menus to closed when opening new modal
-      let accordionMenus = $(".collapse");
-      accordionMenus.removeClass("show");
+      let accordionMenus = $('.collapse');
+      accordionMenus.removeClass('show');
 
       // Adds modal header with pokemon's name
       modalTitle.innerText = capitalize(pokemon.name);
 
       // Adds modal images of front & back of pokemon
-      modalImg.setAttribute("src", `${pokemon.imageUrlFront}`);
-      modalImg2.setAttribute("src", `${pokemon.imageUrlBack}`);
+      modalImg.setAttribute('src', `${pokemon.imageUrlFront}`);
+      modalImg2.setAttribute('src', `${pokemon.imageUrlBack}`);
 
       // Adds modal card content
       modalCardStats.innerHTML = modalStats();
@@ -217,7 +216,7 @@ let pokemonRepository = (() => {
       modalCardInfo.innerHTML = modalInfo();
 
       // Displays the modal
-      $("#pokemonModal").modal("show");
+      $('#pokemonModal').modal('show');
     }
   }
   // Provide access to functions
@@ -239,41 +238,44 @@ pokemonRepository.loadList().then(() => {
 });
 
 // Contact Modal & Validation
-let contact = (() => {
+let contactForm = () => {
   // Displays contact modal
-  let contactForm = (() => {
-    $("#contactButton").click(() => {
+  let contactDisplay = () => {
+    $('#contactButton').click(() => {
       // Reset form validation styles
-      $("form").removeClass("was-validated");
+      $('form').removeClass('was-validated');
 
       // Show contact modal
-      $("#contactModal").modal("show");
+      $('#contactModal').modal('show');
     });
-  })();
+  };
+  contactDisplay();
 
   // Custom contact form validation
-  let formValidation = (() => {
-    "use strict";
-    window.addEventListener("load", () => {
+  let contactValidation = () => {
+    'use strict';
+    window.addEventListener('load', () => {
       // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      let forms = document.getElementsByClassName("needs-validation");
+      let forms = document.getElementsByClassName('needs-validation');
       // Loop over them and prevent submission
-      let validation = Array.prototype.filter.call(forms, (form) => {
-        form.addEventListener("submit", (e) => {
+      Array.prototype.filter.call(forms, (form) => {
+        form.addEventListener('submit', (e) => {
           if (form.checkValidity() === false) {
             e.preventDefault();
             e.stopPropagation();
           }
-          form.classList.add("was-validated");
+          form.classList.add('was-validated');
         });
       });
     });
-  })();
-})();
+  };
+  contactValidation();
+};
+contactForm();
 
 // Scroll-to-top button
-let scrollToTop = (() => {
-  const scrollBtn = document.querySelector("#scrollBtn");
+let scrollToTop = () => {
+  const scrollBtn = document.querySelector('#scrollBtn');
 
   // Shows button when user scrolls down 30px from top of document
   window.onscroll = () => scrollFunction();
@@ -283,9 +285,9 @@ let scrollToTop = (() => {
       document.body.scrollTop > 100 ||
       document.documentElement.scrollTop > 100
     ) {
-      scrollBtn.style.display = "block";
+      scrollBtn.style.display = 'block';
     } else {
-      scrollBtn.style.display = "none";
+      scrollBtn.style.display = 'none';
     }
   }
 
@@ -296,16 +298,19 @@ let scrollToTop = (() => {
     document.documentElement.scrollTop = 0;
   }
 
-  scrollBtn.addEventListener("click", topFunction);
-})();
+  scrollBtn.addEventListener('click', topFunction);
+};
+scrollToTop();
 
 // About Modal
-let about = (() => {
+let about = () => {
   // Displays about modal
-  let aboutModal = (() => {
-    $("#aboutButton").click(() => {
+  let aboutModal = () => {
+    $('#aboutButton').click(() => {
       // Show contact modal
-      $("#aboutModal").modal("show");
+      $('#aboutModal').modal('show');
     });
-  })();
-})();
+  };
+  aboutModal();
+};
+about();
