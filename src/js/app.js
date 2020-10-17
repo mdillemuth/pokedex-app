@@ -265,6 +265,10 @@ let contactForm = () => {
             e.stopPropagation();
           }
           form.classList.add('was-validated');
+
+          setTimeout(() => {
+            form.classList.remove('was-validated');
+          }, 3000);
         });
       });
     });
