@@ -78,68 +78,64 @@ let pokemonRepository = (() => {
   }
 
   // Creates pokemon objects with first level of content
-  function loadList() {
-    // Fetches from main API
-    return fetch(apiUrl)
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        json.results.forEach((item) => {
-          // Creates pokemon object and adds first layer of content
-          let pokemon = {
-            name: item.name,
-            detailsUrl: item.url,
-          };
-          // Adds created object to the pokemonList[]
-          add(pokemon);
-        });
-      })
-      .catch((e) => {
-        console.error(e);
+  async function loadList() {
+    let response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(`HTTP Error! Status: ${response.status}`);
+    } else {
+      let resData = await response.json();
+
+      // Store data in pokemon object to add to pokemonList
+      resData.results.forEach((item) => {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url,
+        };
+        add(pokemon);
       });
+    }
   }
 
   // Creates second level of content for pokemon objects
-  function loadDetails(item) {
-    // URL is from originally added pokemon object
+  async function loadDetails(item) {
     let url = item.detailsUrl;
 
-    return fetch(url)
-      .then((response) => {
-        // Grabs API data and parses as JSON
-        return response.json();
-      })
-      .then((details) => {
-        // Sets pokemon object properties to data from API
-        item.imageUrlFront = details.sprites.front_default;
-        item.imageUrlBack = details.sprites.back_default;
-        item.abilities = details.abilities;
-        item.height = details.height;
-        item.weight = details.weight;
-        item.types = details.types;
-        item.stats = details.stats;
-        item.id = details.id;
-      })
-      .catch((e) => {
-        console.error(e);
-      });
+    let response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP Error! Status: ${response.status}`);
+    } else {
+      let resData = await response.json();
+
+      // Sets pokemon object properties
+      item.imageUrlFront = resData.sprites.front_default;
+      item.imageUrlBack = resData.sprites.back_default;
+      item.abilities = resData.abilities;
+      item.height = resData.height;
+      item.weight = resData.weight;
+      item.types = resData.types;
+      item.stats = resData.stats;
+      item.id = resData.id;
+    }
   }
 
   // Creates and displays modal of pokemon object content
   function showDetails(pokemon) {
-    // Hits API to pull data then shows modal
-    loadDetails(pokemon).then(() => {
-      modalShow(pokemon);
-    });
+    // Pulls details to put into modal
+    loadDetails(pokemon)
+      .then(() => {
+        modalShow(pokemon);
+      })
+      .catch((error) => console.log(error));
 
     // Empty modal selectors to add dynamic content to
-    let modalTitle = document.querySelector('#modalTitle');
-    let modalCardStats = document.querySelector('#cardStats');
-    let modalCardAbilities = document.querySelector('#cardAbilities');
-    let modalCardInfo = document.querySelector('#cardInfo');
-    let modalImg = document.querySelector('#modalImg');
-    let modalImg2 = document.querySelector('#modalImg2');
+    let modalTitle = document.querySelector('#modalTitle'),
+      modalCardStats = document.querySelector('#cardStats'),
+      modalCardAbilities = document.querySelector('#cardAbilities'),
+      modalCardInfo = document.querySelector('#cardInfo'),
+      modalImg = document.querySelector('#modalImg'),
+      modalImg2 = document.querySelector('#modalImg2');
 
     // Prepares stats content for modal
     function modalStats() {
@@ -231,11 +227,14 @@ let pokemonRepository = (() => {
 })();
 
 // Fills pokemonList of objects then adds list-items for DOM
-pokemonRepository.loadList().then(() => {
-  pokemonRepository.getAll().forEach((pokemon) => {
-    pokemonRepository.addListItem(pokemon);
-  });
-});
+pokemonRepository
+  .loadList()
+  .then(() => {
+    pokemonRepository.getAll().forEach((pokemon) => {
+      pokemonRepository.addListItem(pokemon);
+    });
+  })
+  .catch((error) => console.log(error));
 
 // Contact Modal & Validation
 let contactForm = () => {
