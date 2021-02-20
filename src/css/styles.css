@@ -10,11 +10,14 @@
 /* ===== FONTS ===== */
 @font-face {
   font-family: fira-sans;
-  src: url("../fonts/FiraSans-Regular.ttf");
+  src: url('../fonts/FiraSans-Regular.ttf');
 }
 @font-face {
   font-family: roboto;
-  src: url("../fonts/Roboto-Regular.ttf");
+  src: url('../fonts/Roboto-Regular.ttf');
+}
+body {
+  min-height: 100vh;
 }
 h1 {
   font-family: var(--primary-font);
@@ -161,6 +164,16 @@ textarea {
 }
 
 /* ===== FOOTER ===== */
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 8px;
+}
+footer p {
+}
+footer a {
+  color: var(--pokemon-yellow);
+}
 /* ///// TODO (positioning) ///// */
 
 /* MISC */
