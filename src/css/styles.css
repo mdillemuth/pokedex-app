@@ -63,7 +63,7 @@ p {
 
 /* ===== GENERAL ===== */
 body {
-  background: url(../../img/background.jpg) no-repeat fixed center/cover;
+  background: url('../../img/background.jpg') no-repeat fixed center/cover;
 }
 main.container {
   background-color: var(--pokemon-yellow);
@@ -168,8 +168,6 @@ footer {
   position: fixed;
   bottom: 0;
   padding: 8px;
-}
-footer p {
 }
 footer a {
   color: var(--pokemon-yellow);
